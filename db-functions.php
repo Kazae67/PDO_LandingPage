@@ -1,5 +1,4 @@
 <?php
-
 /**
  *@DNSServer
  *Nom du domaine
