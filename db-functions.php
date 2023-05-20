@@ -11,7 +11,6 @@ $dbname = 'pricing';
 $username = 'root';
 $password = '';
 
-
 /**
  *@errorCode Affiche une erreur si la connexion ne s'établie pas
  *On aurait pu mettre dans ça dans une Class pour l'utiliser comme fonction
