@@ -13,6 +13,11 @@ if ($result->rowCount() > 0) {
         $prix = $row['prix'];
         $reduction = $row['reduction'];
         $afficherReduction = $row['afficher_reduction'];
+        $bandwidth = $row['bandwidth'];
+        $onlinespace = $row['onlinespace'];
+        $support = $row['support'];
+        $domain = $row['domain'];
+        $hidden_fees = $row['hidden_fees'];
 
         // Afficher les formules de pricing dans le format souhaité
         echo "<div class='pricing-box'>";
@@ -23,9 +28,16 @@ if ($result->rowCount() > 0) {
             echo "<p>Réduction : -$reduction €</p>";
         }
 
+        // [TÂCHE IMPORTANTE ne pas oublier] Trouvez une condition pour afficher soit GB soit MB à la fin
+        echo "<p>Bandwidth : $bandwidth</p>";
+        echo "<p>Onlinespace : $onlinespace</p>";
+        echo "<p>Support : " . ($support ? "Yes" : "No") . "</p>";
+        echo "<p>Domain : " . ($domain ? $domain : "N/A") . "</p>";
+        echo "<p>Hidden fees : " . ($hidden_fees ? "No" : "Yes") . "</p>";
+
         echo "</div>";
     }
 } else {
-    echo "Aucune formule de la base de données 'pricing' trouvée.";
+    echo "Aucune formule de la base de donnée pricing trouvée.";
 }
 ?>
