@@ -20,14 +20,21 @@ if ($result->rowCount() > 0) {
         $hidden_fees = $row['hidden_fees'];
 
 
-        // Conversion de la valeur de onlinespace en GB si elle dépasse 1000
+        // bandwidth en GB si elle dépasse 1000MB
+        if ($bandwidth > 999) {
+            $bandwidth = round($bandwidth / 999, 1) . 'GB';
+        } else {
+            $bandwidth = $bandwidth . 'MB';
+        }
+
+        // onlinespace en GB si elle dépasse 1000MB
         if ($onlinespace > 999) {
-            $onlinespace = round($onlinespace / 1000, 1) . 'GB';
+            $onlinespace = round($onlinespace / 999, 1) . 'GB';
         } else {
             $onlinespace = $onlinespace . 'MB';
         }
 
-        // Afficher les formules de pricing dans le format souhaité
+        // Afficher les formules de pricing
         echo "<div class='pricing-box'>";
         echo "<h2>$formule</h2>";
         echo "<p>Prix : $prix €</p>";
@@ -37,12 +44,12 @@ if ($result->rowCount() > 0) {
             echo "<p>Réduction : -$reduction €</p>";
         }
 
-        // Typage catégories des formules de pricing 
-        echo "<p>Bandwidth : $bandwidth</p>";
-        echo "<p>Onlinespace : $onlinespace</p>";
-        echo "<p>Support : " . ($support ? "Yes" : "No") . "</p>";
-        echo "<p>Domain : " . ($domain ? $domain : "N/A") . "</p>";
-        echo "<p>Hidden fees : " . ($hidden_fees ? "No" : "Yes") . "</p>";
+        // Typage catégories des formules de pricing && Affichage des icones
+        echo "<p>Bandwidth : $bandwidth " . ($bandwidth > 0 ? "✓" : "×") . "</p>";
+        echo "<p>Onlinespace : $onlinespace " . ($onlinespace > 0 ? "✓" : "×") . "</p>";
+        echo "<p>Support : " . ($support ? "Yes ✓" : "No ×") . "</p>";
+        echo "<p>Domain : " . ($domain > 0 ? $domain . " ✓" : "N/A ×") . "</p>";
+        echo "<p>Hidden fees : " . ($hidden_fees ? "Yes ✓" : "No ×") . "</p>";
 
         echo "</div>";
     }
