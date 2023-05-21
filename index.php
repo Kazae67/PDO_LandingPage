@@ -17,6 +17,7 @@ if ($result->rowCount() > 0) {
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $formule = $row['formule']; 
         $prix = $row['prix'];
+        $mois = $row['mois'];
         $reduction = $row['reduction'];
         $afficherReduction = $row['afficher_reduction'];
         $bandwidth = $row['bandwidth'];
@@ -40,10 +41,10 @@ if ($result->rowCount() > 0) {
             $onlinespace = $onlinespace . 'MB';
         }
 
-        // Afficher les formules de pricing
+        // Afficher les formules, prix, month de pricing 
         echo "<div class='pricing-box'>";
         echo "<h2>$formule</h2>";
-        echo "<p>Prix : $prix €</p>";
+        echo "<p>$ $prix <span class='month'>/$mois</span></p>";
 
         // Condition pour afficher la réduction [0 :? 1] 
         if ($afficherReduction && $reduction > 0) {
