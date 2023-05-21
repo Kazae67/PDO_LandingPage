@@ -14,6 +14,7 @@ if (isset($_POST['update'])) {
     $domain = $_POST['domain'];
     $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
 }
+// [Trouver un moyen de mettre à jour après la récupération (piste QUERY)]
 ?>
 
 <!-- LES FORMULAIRES -->
