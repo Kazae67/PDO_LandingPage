@@ -11,17 +11,17 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%; /* occuper toute la largeur disponible */
-    max-width: 1200px; /* Limiter la largeur maximale [à changer plus tard] */
+    max-width: 1000; /* Limiter la largeur maximale [à changer plus tard] */
     margin: 0 auto; /* centrer le conteneur horizontalement */
 }
 
 /* LES BOX */
 .pricing-box {
     position: relative;
-    width: 15%;
+    width: 18%;
     background-color: #ffffff;
     border-radius: 8px; 
-    padding: 60px;
+    padding: 70px;
     display: flex;
     flex-direction: column; 
     justify-content: center;
@@ -34,6 +34,7 @@ body {
 .pricing-box h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    margin-top: -35px;
 }
 
 /* LES BOX <p>*/
@@ -50,7 +51,7 @@ body {
 
 /* LE PRIX [essayer une autre police d'écriture] */
 .prix {
-    font-size: 28px; 
+    font-size: 40px; 
     font-weight: bold; /* [Essayer plus gras] */
     color: rgb(64, 144, 248); 
 }

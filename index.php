@@ -50,7 +50,15 @@ if ($result->rowCount() > 0) {
         if ($afficherReduction && $reduction > 0) {
             echo "<p class='reduction'>$reduction%<br>sale</p>"; // Décimal en 5,2 pour le %
         }
-
+    /* CONDITION POUR LE METTRE SEULEMENT SUR LES ADVANCED
+        if ($afficherReduction && $reduction > 0) {
+            if ($formule == "Advanced") { // Vérifiez si c'est la formule "Advanced"
+                echo "<p class='reduction'>-$reduction%</p>";
+            } else {
+                echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
+            }
+        }
+    */
         // Typage catégories des formules de pricing && Affichage des icones
         echo "<p>Bandwidth : $bandwidth " . ($bandwidth > 0 ? "✓" : "×") . "</p>";
         echo "<p>Onlinespace : $onlinespace " . ($onlinespace > 0 ? "✓" : "×") . "</p>";
