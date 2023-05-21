@@ -3,12 +3,10 @@ require_once 'db-functions.php';
 
 ?>
 <link rel="stylesheet" href="style.css">
-<!-- Conteneur des prix -->
+<!-- Conteneur des offres -->
 <div class="pricing-container">
 
-
 <?php
-
 // Requête pour récupérer les formules de pricing depuis la base de données heidiSQL
 $query = "SELECT * FROM pricing_db";
 $result = $db->query($query);
@@ -46,7 +44,7 @@ if ($result->rowCount() > 0) {
         // Afficher les formules, prix, month de pricing 
         echo "<div class='pricing-box'>";
         echo "<h2>$formule</h2>";
-        echo "<p>$ $prix <span class='month'>/$mois</span></p>";
+        echo "<p><span class='prix'>$ $prix <span class='month'>/$mois</span></p>";
 
         // Condition pour afficher la réduction [0 :? 1] 
         if ($afficherReduction && $reduction > 0) {
@@ -63,7 +61,7 @@ if ($result->rowCount() > 0) {
         echo "</div>";
     }
 } else {
-    echo "Aucune formule de la base de donnée pricing trouvée.";
+    echo "Aucune formule de la base de données pricing trouvée.";
 }
 
 
