@@ -33,7 +33,7 @@ body {
 .pricing-box h2 {
     font-size: 24px;
     margin-bottom: 22px; /*Monter le titre*/
-    margin-top: -55px;
+    margin-top: -45px;
     text-align: center;
 }
 
@@ -49,13 +49,11 @@ body {
 
 /* LES BOX <p> ETIQUETTES */
 .pricing-box p .label {
-    flex-shrink: 0;
     margin-right: 10px;
 }
 
 /* LES BOX <p> VALEURS */
 .pricing-box p .value {
-    flex-grow: 1;
     text-align: right;
 }
 
@@ -80,7 +78,7 @@ body {
     position: absolute;
     top: 0px;
     right: 0px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: bold;
     color: #ffffff;
     background-color: rgb(63, 134, 228);
@@ -89,6 +87,18 @@ body {
     text-align:left;
     border-radius: 0px 5px 0px 12px; /*Tout en douceur :) */
 }
+
+/* button join */
+.join-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
 
 /* Symbole ✓ en vert */
 .symbol-check {

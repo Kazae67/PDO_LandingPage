@@ -67,6 +67,7 @@ if ($result->rowCount() > 0) {
         echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-check'>✓</span>" : "0 <span class='symbol-cross'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-check'>✓</span>" : "No <span class='symbol-cross'>×</span>") . "</span></p>";
 
+        echo "<button class='join-button'>Join Now</button>";
 
         echo "</div>";
     }
