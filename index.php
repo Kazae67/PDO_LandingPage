@@ -41,7 +41,7 @@ if ($result->rowCount() > 0) {
 
         // Condition pour afficher la réduction [0 :? 1]
         if ($afficherReduction && $reduction > 0) {
-            echo "<p>Réduction : -$reduction €</p>";
+            echo "<p>Réduction : -$reduction %</p>";
         }
 
         // Typage catégories des formules de pricing && Affichage des icones
