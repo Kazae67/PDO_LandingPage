@@ -2,7 +2,7 @@
 // Require pour la connexion
 require_once 'db-functions.php';
 
-// [Trouver une méthode pour établir la connexion] 
+// Chercher si elle existe
 if (isset($_POST['update'])) {
     // Vérification des données envoyées
     $formule = $_POST['name'];
@@ -13,8 +13,20 @@ if (isset($_POST['update'])) {
     $support = $_POST['support'] == 'Yes' ? 1 : 0;
     $domain = $_POST['domain'];
     $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
+
+    // Mise à jour des données dans la base de données
+    $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees WHERE formule = :formule";
+    $update = $db->prepare($query);
+    $update->bindParam(':prix', $prix);
+    $update->bindParam(':reduction', $reduction);
+    $update->bindParam(':bandwidth', $bandwidth);
+    $update->bindParam(':onlinespace', $onlinespace);
+    $update->bindParam(':support', $support);
+    $update->bindParam(':domain', $domain);
+    $update->bindParam(':hidden_fees', $hidden_fees);
+    $update->bindParam(':formule', $formule);
+    $update->execute();
 }
-// [Trouver un moyen de mettre à jour après la récupération (piste QUERY)]
 ?>
 
 <!-- LES FORMULAIRES -->
@@ -23,7 +35,7 @@ if (isset($_POST['update'])) {
     <h2>Starter</h2>
     <input type="hidden" name="formule" value="Starter">
 
-    <label for="name">Nom:</label>
+    <label for="name">Name:</label>
     <input type="text" name="name" required>
     <br>
 
@@ -64,7 +76,7 @@ if (isset($_POST['update'])) {
     <h2>Professional</h2>
     <input type="hidden" name="formule" value="Professional">
 
-    <label for="name">Nom:</label>
+    <label for="name">Name:</label>
     <input type="text" name="name" required>
     <br>
 
@@ -104,7 +116,7 @@ if (isset($_POST['update'])) {
     <h2>Advanced</h2>
     <input type="hidden" name="formule" value="Advanced">
 
-    <label for="name">Nom:</label>
+    <label for="name">Name:</label>
     <input type="text" name="name" required>
     <br>
 
