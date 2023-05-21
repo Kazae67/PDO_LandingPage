@@ -39,16 +39,16 @@ if ($result->rowCount() > 0) {
         echo "<h2>$formule</h2>";
         echo "<p>Prix : $prix €</p>";
 
-        // Condition pour afficher la réduction [0 :? 1]
+        // Condition pour afficher la réduction [0 :? 1] 
         if ($afficherReduction && $reduction > 0) {
-            echo "<p>Réduction : -$reduction %</p>";
+            echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
         }
 
         // Typage catégories des formules de pricing && Affichage des icones
         echo "<p>Bandwidth : $bandwidth " . ($bandwidth > 0 ? "✓" : "×") . "</p>";
         echo "<p>Onlinespace : $onlinespace " . ($onlinespace > 0 ? "✓" : "×") . "</p>";
         echo "<p>Support : " . ($support ? "Yes ✓" : "No ×") . "</p>";
-        echo "<p>Domain : " . ($domain > 0 ? $domain . " ✓" : "N/A ×") . "</p>";
+        echo "<p>Domain : " . ($domain > 0 ? $domain . " ✓" : "0 ×") . "</p>";
         echo "<p>Hidden fees : " . ($hidden_fees ? "Yes ✓" : "No ×") . "</p>";
 
         echo "</div>";
