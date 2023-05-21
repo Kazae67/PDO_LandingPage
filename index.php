@@ -48,7 +48,7 @@ if ($result->rowCount() > 0) {
 
         // Condition pour afficher la réduction [0 :? 1] 
         if ($afficherReduction && $reduction > 0) {
-            echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
+            echo "<p class='reduction'>$reduction%<br>sale</p>"; // Décimal en 5,2 pour le %
         }
 
         // Typage catégories des formules de pricing && Affichage des icones
