@@ -1,8 +1,10 @@
 [II. Update pricing]
 Créer une interface servant à mettre à jour les données de pricing depuis un fichier
 admin.php
-
+[Trouver une méthode pour établir la connexion] 
 (1) Il faudra afficher un message de réussite ou d erreur
+
+
 
 [III. Compteur]
 Ajouter un compteur de formules commandées
