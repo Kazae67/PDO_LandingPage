@@ -2,7 +2,7 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     display: flex;
-    justify-content: center; /* Centrer horizontalement les éléments */
+    /* justify-content: center; Centrer horizontalement les éléments */
     align-items: center; /* Centrer verticalement les éléments */
 }
 
@@ -54,6 +54,7 @@ body {
     font-size: 40px; 
     font-weight: bold; /* [Essayer plus gras] */
     color: rgb(64, 144, 248); 
+    
 }
 
 /*RÉDUCTION */
