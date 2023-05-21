@@ -48,11 +48,11 @@ if ($result->rowCount() > 0) {
 
         // Condition pour afficher la réduction sur chaque formule 
         if ($afficherReduction && $reduction >= 0) {
-            if ($formule == "Starter") { // Vérifiez si c'est la formule "Advanced"
+            if ($formule == "Starter") { // Vérifier si c'est la formule "Advanced"
                 echo "<p class='reduction'>$reduction%<br>sale</p>";
-            } elseif ($formule == "Advanced") { // Vérifiez si c'est la formule "Starter"
+            } elseif ($formule == "Advanced") { // Vérifier si c'est la formule "Starter"
                 echo "<p class='reduction'>$reduction%<br>sale</p>";
-            } elseif ($formule == "Professional") { // Vérifiez si c'est la formule "Professional"
+            } elseif ($formule == "Professional") { // Vérifier si c'est la formule "Professional"
                 echo "<p class='reduction'>$reduction%<br>sale</p>";
             } else {
                 echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
