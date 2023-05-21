@@ -46,14 +46,23 @@ if ($result->rowCount() > 0) {
         echo "<h2>$formule</h2>";
         echo "<p><span class='prix'>$$prix<span class='month'>/$mois</span></p>";
 
-        // Condition pour afficher la réduction [0 :? 1] 
-        if ($afficherReduction && $reduction > 0) {
-            echo "<p class='reduction'>$reduction%<br>sale</p>"; // Décimal en 5,2 pour le %
+        // Condition pour afficher la réduction sur chaque formule 
+        if ($afficherReduction && $reduction >= 0) {
+            if ($formule == "Starter") { // Vérifiez si c'est la formule "Advanced"
+                echo "<p class='reduction'>$reduction%<br>sale</p>";
+            } elseif ($formule == "Advanced") { // Vérifiez si c'est la formule "Starter"
+                echo "<p class='reduction'>$reduction%<br>sale</p>";
+            } elseif ($formule == "Professional") { // Vérifiez si c'est la formule "Professional"
+                echo "<p class='reduction'>$reduction%<br>sale</p>";
+            } else {
+                echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
+            }
+        
         }
     /* CONDITION POUR LE METTRE SEULEMENT SUR LES ADVANCED
         if ($afficherReduction && $reduction > 0) {
             if ($formule == "Advanced") { // Vérifiez si c'est la formule "Advanced"
-                echo "<p class='reduction'>-$reduction%</p>";
+                echo "<p class='reduction'>$reduction%<br>sale</p>";
             } else {
                 echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
             }
