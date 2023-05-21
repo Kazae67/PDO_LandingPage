@@ -15,6 +15,7 @@ if (isset($_POST['update'])) {
     $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
 
     // Mise à jour des données dans la base de données
+    // https://www.php.net/manual/fr/pdostatement.bindparam.php
     $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees WHERE formule = :formule";
     $update = $db->prepare($query);
     $update->bindParam(':prix', $prix);
@@ -69,7 +70,6 @@ if (isset($_POST['update'])) {
 
     <input type="submit" name="update" value="Update">
 </form>
-
 
 <!-- Form Advanced-->
 <form action="admin.php" method="POST">
