@@ -9,19 +9,19 @@ body {
 /* CONTAINER */
 .pricing-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between ;
     width: 100%; /* occuper toute la largeur disponible */
-    max-width: 1000; /* Limiter la largeur maximale [à changer plus tard] */
-    margin: 0 auto; /* centrer le conteneur horizontalement */
+    max-width: 1150; /* Limiter la largeur maximale [à changer plus tard] */
+    margin: 0 auto; /* centrer le conteneur */
 }
 
 /* LES BOX */
 .pricing-box {
     position: relative;
-    width: 18%;
+    width: 19%;
     background-color: #ffffff;
     border-radius: 8px; 
-    padding: 70px;
+    padding: 68px;
     display: flex;
     flex-direction: column; 
 

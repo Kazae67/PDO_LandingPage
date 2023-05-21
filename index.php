@@ -44,7 +44,7 @@ if ($result->rowCount() > 0) {
         // Afficher les formules, prix, month de pricing 
         echo "<div class='pricing-box'>";
         echo "<h2>$formule</h2>";
-        echo "<p><span class='prix'>$ $prix <span class='month'>/$mois</span></p>";
+        echo "<p><span class='prix'>$$prix<span class='month'>/$mois</span></p>";
 
         // Condition pour afficher la réduction [0 :? 1] 
         if ($afficherReduction && $reduction > 0) {
@@ -59,7 +59,7 @@ if ($result->rowCount() > 0) {
             }
         }
     */
-        // Typage catégories des formules de pricing && Affichage des icones
+        // Typage catégories des formules de pricing && Affichage des icones && ETIQUETTES/VALEURS
         echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "✓" : "×") . "</span></p>";
         echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "✓" : "×") . "</span></p>";
         echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes ✓" : "No ×") . "</span></p>";
