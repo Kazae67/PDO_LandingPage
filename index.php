@@ -3,7 +3,7 @@ require_once 'db-functions.php';
 
 ?>
 <link rel="stylesheet" href="style.css">
-<!-- Conteneur des offres -->
+<!-- Conteneur offres -->
 <div class="pricing-container">
 
 <?php
@@ -61,11 +61,11 @@ if ($result->rowCount() > 0) {
     */
         // Typage catégories des formules de pricing && Affichage des icones && ETIQUETTES/VALEURS
         // Créer des functions pour raccourcir le code et la la lisibilité
-        echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-check'>✓</span>" : "<span class='symbol-cross'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-check'>✓</span>" : "<span class='symbol-cross'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-check'>✓</span>" : "No <span class='symbol-cross'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-check'>✓</span>" : "0 <span class='symbol-cross'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-check'>✓</span>" : "No <span class='symbol-cross'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-vert'>✓</span>" : "0 <span class='symbol-rouge'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
 
         echo "<button class='join-button'>Join Now</button>";
 

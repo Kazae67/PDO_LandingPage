@@ -100,17 +100,27 @@ body {
     cursor: pointer;
   }
 
-/* Symbole ✓ en vert */
-.symbol-check {
+/* Symbole vert */
+.symbol-vert {
     color: green;
   }
   
-  /* Symbole × en rouge */
-  .symbol-cross {
+  /* Symbole rouge */
+  .symbol-rouge {
     color: red;
   }
 
-
+/* Effet de survol */
+.pricing-box:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    transition: transform 0.4s ease;
+  }
+  
+  /* button hover */
+  .join-button:hover {
+    background-color: #0056b3;
+  }
 
 
 
