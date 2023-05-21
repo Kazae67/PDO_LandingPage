@@ -60,11 +60,13 @@ if ($result->rowCount() > 0) {
         }
     */
         // Typage catégories des formules de pricing && Affichage des icones && ETIQUETTES/VALEURS
-        echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "✓" : "×") . "</span></p>";
-        echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "✓" : "×") . "</span></p>";
-        echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes ✓" : "No ×") . "</span></p>";
-        echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " ✓" : "0 ×") . "</span></p>";
-        echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes ✓" : "No ×") . "</span></p>";
+        // Créer des functions pour raccourcir le code et la la lisibilité
+        echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-check'>✓</span>" : "<span class='symbol-cross'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-check'>✓</span>" : "<span class='symbol-cross'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-check'>✓</span>" : "No <span class='symbol-cross'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-check'>✓</span>" : "0 <span class='symbol-cross'>×</span>") . "</span></p>";
+        echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-check'>✓</span>" : "No <span class='symbol-cross'>×</span>") . "</span></p>";
+
 
         echo "</div>";
     }

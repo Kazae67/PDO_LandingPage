@@ -90,6 +90,15 @@ body {
     border-radius: 0px 5px 0px 12px; /*Tout en douceur :) */
 }
 
+/* Symbole ✓ en vert */
+.symbol-check {
+    color: green;
+  }
+  
+  /* Symbole × en rouge */
+  .symbol-cross {
+    color: red;
+  }
 
 
 
