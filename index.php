@@ -27,14 +27,14 @@ if ($result->rowCount() > 0) {
         $hidden_fees = $row['hidden_fees'];
 
 
-        // bandwidth en GB si elle dépasse 1000MB
+        // bandwidth en GB si elle dépasse 999MB
         if ($bandwidth > 999) {
             $bandwidth = round($bandwidth / 999, 1) . 'GB';
         } else {
             $bandwidth = $bandwidth . 'MB';
         }
 
-        // onlinespace en GB si elle dépasse 1000MB
+        // onlinespace en GB si elle dépasse 999MB
         if ($onlinespace > 999) {
             $onlinespace = round($onlinespace / 999, 1) . 'GB';
         } else {
@@ -69,7 +69,8 @@ if ($result->rowCount() > 0) {
         }
     */
         // Typage catégories des formules de pricing && Affichage des icones && ETIQUETTES/VALEURS
-        // Créer des functions pour raccourcir le code et la la lisibilité
+        // [NE PAS OUBLIER]
+        // Créer des functions pour raccourcir le code et la lisibilité 
         echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";

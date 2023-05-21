@@ -1,0 +1,25 @@
+[II. Update pricing]
+Créer une interface servant à mettre à jour les données de pricing depuis un fichier
+admin.php
+
+(1) Il faudra afficher un message de réussite ou d erreur
+
+[III. Compteur]
+Ajouter un compteur de formules commandées
+
+(1) Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)
+(2) Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand
+    l utilisateur appuie sur « Join Now »
+(3) Afficher un message de notification à l utilisateur 
+
+[IV. Newsletter]
+Stocker les emails pour la newsletter
+
+(1) Créer une table email en BDD et y ajouter un champs email
+(2) Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur
+« Subscribe »
+(3) Afficher un message de notification à l’utilisateur 
+
+
+[NE PAS OUBLIER]
+// Créer des functions pour raccourcir le code et la lisibilité -> index.php[72]

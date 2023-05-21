@@ -24,9 +24,7 @@ body {
     padding: 68px;
     display: flex;
     flex-direction: column; 
-
-
-    /* flex-grow : 0.5; [à tester plus tard]*/
+    /*flex-grow : 0.5; [à tester plus tard]*/
 }
 
 /* LES BOX <h2> */
