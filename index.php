@@ -78,10 +78,10 @@ if ($result->rowCount() > 0) {
         echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
 
         // Commandes et incrémentation
-        echo "<p>Commandes : $commandes</p>";
-        echo "<button class='join-button' onclick='incrementCommande(\"$formule\")'>Join Now</button>";
+        echo "<p>Commandes : <span id='commande-$formule'>$commandes</span></p>";
+        echo "<button class='join-button' onclick='commande(\"$formule\")'>Join Now</button>";
         echo "</div>";
-
+        
 
     }
 } else {

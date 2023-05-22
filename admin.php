@@ -30,7 +30,8 @@ if (isset($_POST['update'])) {
     $update->bindParam(':hidden_fees', $hidden_fees);
     $update->bindParam(':formule', $formule);
     $update->execute();
-
+    header("Location: index.php");
+    exit;
 }
 ?>
 
