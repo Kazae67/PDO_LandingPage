@@ -16,6 +16,7 @@ if (isset($_POST['update'])) {
     $support = $_POST['support'] == 'Yes' ? 1 : 0;
     $domain = $_POST['domain'];
     $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
+    $commande = $_POST['commande'];
 
     // Mise à jour des données dans la base de données
     // https://www.php.net/manual/fr/pdostatement.bindparam.php
@@ -79,6 +80,10 @@ if (isset($_POST['update'])) {
 
     <label for="hidden_fees">Hidden fees:</label>
     <input type="text" name="hidden_fees" required>
+    <br>
+
+    <label for="commande">Commande:</label>
+    <input type="text" name="commande" required>
     <br>
 
     <input type="submit" name="update" value="Update">
