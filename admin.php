@@ -19,7 +19,7 @@ if (isset($_POST['update'])) {
 
     // Mise à jour des données dans la base de données
     // https://www.php.net/manual/fr/pdostatement.bindparam.php
-    $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees, commande = :commande = :hidden_fees WHERE formule = :formule";
+    $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees, commande = :commande WHERE formule = :formule";
     $update = $db->prepare($query);
     $update->bindParam(':prix', $prix);
     $update->bindParam(':reduction', $reduction);
@@ -29,9 +29,17 @@ if (isset($_POST['update'])) {
     $update->bindParam(':domain', $domain);
     $update->bindParam(':hidden_fees', $hidden_fees);
     $update->bindParam(':formule', $formule);
+    $update->bindParam(':commande', $commande);
     $update->execute();
-    header("Location: index.php");
-    exit;
+    // header("Location: index.php");
+    // exit;
+
+    // Message d'erreur
+    if($update->rowCount() > 0){
+        echo'Votre modification a bien été effectué';
+    }else{
+        echo'Un problème subsiste, vérifiez à nouveau les informations saisies';
+    }
 }
 ?>
 
