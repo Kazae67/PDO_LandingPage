@@ -6,6 +6,7 @@ require_once 'db-functions.php';
 <!-- Conteneur offres -->
 <div class="pricing-container">
 
+<!-- test -->
 <?php
 // Requête pour récupérer les formules de pricing depuis la base de données heidiSQL
 $query = "SELECT * FROM pricing_db";
@@ -34,6 +35,7 @@ if ($result->rowCount() > 0) {
             $bandwidth = $bandwidth . 'MB';
         }
 
+        
         // onlinespace en GB si elle dépasse 999MB
         if ($onlinespace > 999) {
             $onlinespace = round($onlinespace / 999, 1) . 'GB';
