@@ -1,7 +1,10 @@
 <?php
 // Require pour la connexion
 require_once 'db-functions.php';
+?>
+<link rel="stylesheet" href="form-style.css">
 
+<?php
 // Chercher si elle existe
 if (isset($_POST['update'])) {
     // Vérification des données envoyées
@@ -27,6 +30,7 @@ if (isset($_POST['update'])) {
     $update->bindParam(':hidden_fees', $hidden_fees);
     $update->bindParam(':formule', $formule);
     $update->execute();
+
 }
 ?>
 
