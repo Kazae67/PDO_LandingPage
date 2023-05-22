@@ -26,7 +26,8 @@ if ($result->rowCount() > 0) {
         $support = $row['support'];
         $domain = $row['domain'];
         $hidden_fees = $row['hidden_fees'];
-        $commandes = $row['commande'];
+        $commande = $row['commande'];
+
 
         // bandwidth en GB si elle dépasse 999MB
         if ($bandwidth > 999) {
@@ -59,28 +60,16 @@ if ($result->rowCount() > 0) {
             } else {
                 echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
             }
-        
         }
-    /* CONDITION POUR LE METTRE SEULEMENT SUR LES ADVANCED
-        if ($afficherReduction && $reduction > 0) {
-            if ($formule == "Advanced") { // Vérifiez si c'est la formule "Advanced"
-                echo "<p class='reduction'>$reduction%<br>sale</p>";
-            } else {
-                echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
-            }
-        }
-    */
-        // Typage catégories des formules de pricing && Affichage des icones && ETIQUETTES/VALEURS
-        // [NE PAS OUBLIER]
-        // Créer des functions pour raccourcir le code et la lisibilité 
+
         echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-vert'>✓</span>" : "0 <span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
 
-        // Commandes et incrémentation
-        echo "<p>Commandes : <span id='commande-$formule'>$commandes</span></p>";
+        // commande et incrémentation
+        echo "<p>commande : <span id='commande'". $formule ."'>$commande</span></p>";
         echo "<button class='join-button' onclick='commande(\"$formule\")'>Join Now</button>";
         echo "</div>";
         
@@ -89,7 +78,5 @@ if ($result->rowCount() > 0) {
 } else {
     echo "Aucune formule de la base de données pricing trouvée.";
 }
-
-
 ?>
 </div>

@@ -34,11 +34,11 @@ if (isset($_POST['update'])) {
     // header("Location: index.php");
     // exit;
 
-    // Message d'erreur
+
     if($update->rowCount() > 0){
-        echo'Votre modification a bien été effectué';
+        echo "Vous avez bien modifié votre formule";
     }else{
-        echo'Un problème subsiste, vérifiez à nouveau les informations saisies';
+        echo "Malheuresement vous n'avez pas réussi à modifier votre formule";
     }
 }
 ?>
