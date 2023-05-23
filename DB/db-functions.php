@@ -26,4 +26,5 @@ try {
 } catch (PDOException $err) {
     echo "Erreur de connexion à la base de données : " . $err->getMessage();
     exit;
+    // CHANGEMENT ICI PEUT ETRE 
 }
