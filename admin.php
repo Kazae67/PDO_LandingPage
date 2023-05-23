@@ -1,5 +1,5 @@
 <?php
-// Require pour la connexion
+// La ligne require_once 'db-functions.php' inclut le fichier db-functions.php, qui contient les fonctions nécessaires pour la connexion à la base de données.
 require_once 'db-functions.php';
 ?>
 
@@ -7,7 +7,10 @@ require_once 'db-functions.php';
 <link rel="stylesheet" href="form-style.css">
 
 <?php
-// Chercher si elle existe
+/**
+ * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
+ * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
+ */
 if (isset($_POST['update'])) {
     // Vérification des données envoyées
     $formule = $_POST['name'];
@@ -20,8 +23,18 @@ if (isset($_POST['update'])) {
     $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
     $commande = $_POST['commande'];
 
-    // Mise à jour des données dans la base de données
-    // https://www.php.net/manual/fr/pdostatement.bindparam.php
+    /**
+     * Les données du formulaire sont récupérées à partir de $_POST et sont assignées à des variables. 
+     * Les variables incluent formule, prix, reduction, bandwidth, onlinespace, support, domain, hidden_fees et commande. 
+     * Ces valeurs correspondent aux champs du formulaire.
+     * Ensuite, le code prépare une requête SQL pour mettre à jour les données dans la base de données. 
+     * La requête utilise des paramètres nommés (par exemple, :prix, :reduction, etc.) pour les valeurs qui seront liées ultérieurement.
+     * Les variables sont liées aux paramètres de la requête SQL à l'aide de la méthode bindParam() de l'objet $update. (https://www.php.net/manual/fr/pdostatement.bindparam)
+     * Cela permet de sécuriser la requête en évitant les injections SQL. 
+     * La méthode execute() est appelée sur l'objet $update pour exécuter la requête de mise à jour dans la base de données. (https://www.php.net/manual/fr/pdostatement.execute)
+     * Après la mise à jour, le code vérifie si des lignes ont été affectées par la requête en utilisant la méthode rowCount(). 
+     * Si des lignes ont été affectées, le message de validation est affiché, sinon, le message d'erreur apparaît.
+     */
     $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees, commande = :commande WHERE formule = :formule";
     $update = $db->prepare($query);
     $update->bindParam(':prix', $prix);
@@ -34,9 +47,6 @@ if (isset($_POST['update'])) {
     $update->bindParam(':formule', $formule);
     $update->bindParam(':commande', $commande);
     $update->execute();
-    // header("Location: index.php");
-    // exit;
-
     // Erreur modification formulaire
     if($update->rowCount() > 0){
         echo "Vous avez bien modifié votre formule";
@@ -44,9 +54,21 @@ if (isset($_POST['update'])) {
         echo "Malheuresement vous n'avez pas réussi à modifier votre formule";
     }
 }
+    // header("Location: index.php");
+    // exit;
 ?>
 
-<!-- LES FORMULAIRES -->
+<!-- 
+* Chaque formulaire est enveloppé dans une balise <form> avec une action admin.php et une méthode POST. 
+* L'action spécifie le fichier vers lequel les données du formulaire seront envoyées pour traitement. Dans ce cas, il s'agit du même fichier (admin.php).
+* Les balises <input> sont utilisées pour les champs de formulaire. 
+* Chaque champ a un attribut name qui correspond aux clés dans $_POST lorsque le formulaire est soumis. 
+* Par exemple, le champ "Name" a name="name", le champ "Price" a name="price", etc.
+* Chaque formulaire a également un champ <input> de type "hidden" qui contient la valeur de la formule correspondante. 
+* Cela est utilisé pour identifier la formule lors de la mise à jour des données dans la base de données.
+* Lorsque l'utilisateur soumet l'un des formulaires en cliquant sur le bouton "Update", 
+* les données du formulaire sont envoyées à la même page (admin.php) et traitées selon les étapes mentionnées précédemment.
+-->
 <!-- Form Starter -->
 <form action="admin.php" method="POST">
     <h2>Starter</h2>
