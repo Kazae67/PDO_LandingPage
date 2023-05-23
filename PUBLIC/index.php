@@ -140,36 +140,4 @@ if ($result->rowCount() > 0) {
 }
 ?>
 
-<!-- PARTIE TESTING -->
-<form method="post" action="">
-  <input type="email" name="email" placeholder="Enter your email" required>
-  <button type="submit" name="subscribe">Subscribe</button>
-</form>
-</div>
-
-<?php
-
-/**
- * Sert à insérer l'email en base de données lorsque l'utilisateur appuie sur le bouton "Subscribe"
- */
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
-    $email = $_POST['email'];
-    // Vérifier si l'email existe déjà en base de données
-    $query = "SELECT COUNT(*) FROM email WHERE email = :email";
-    $checkEmail = $db->prepare($query);
-    $checkEmail->bindParam(':email', $email);
-    $checkEmail->execute();
-    $count = $checkEmail->fetchColumn();
-
-    if ($count > 0) {
-        echo "<p>Email déjà soumis !</p>";
-    } else {
-        $query = "INSERT INTO email (email) VALUES (:email)";
-        $insert = $db->prepare($query);
-        $insert->bindParam(':email', $email);
-        $insert->execute();
-
-        echo "<p>Merci pour votre enregistrement !</p>";
-    }
-}
 
