@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
     $update->bindParam(':formule', $formule);
     $update->bindParam(':commande', $commande);
     $update->execute();
-    // Erreur modification formulaire
+    // Message de validation de la modification formulaire
     if($update->rowCount() > 0){
         echo "Vous avez bien modifié votre formule";
     }else{
