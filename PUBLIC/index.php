@@ -89,16 +89,22 @@ if ($result->rowCount() > 0) {
                 echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 pour le %
             }
         }
-        echo "<p><span class='label'>Bandwidth</span><span class='value'>$bandwidth " . ($bandwidth > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Onlinespace</span><span class='value'>$onlinespace " . ($onlinespace > 0 ? "<span class='symbol-vert'>✓</span>" : "<span class='symbol-rouge'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Support</span><span class='value'>" . ($support ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-vert'>✓</span>" : "0 <span class='symbol-rouge'>×</span>") . "</span></p>";
-        echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
-        // formulaire commande
+        $features = [
+            ['label' => 'Bandwidth', 'value' => $bandwidth, 'symbol' => ($bandwidth > 0 ? '✓' : '×')],
+            ['label' => 'Onlinespace', 'value' => $onlinespace, 'symbol' => ($onlinespace > 0 ? '✓' : '×')],
+            ['label' => 'Support', 'value' => ($support ? 'Yes' : 'No'), 'symbol' => ($support ? '✓' : '×')],
+            ['label' => 'Domain', 'value' => ($domain > 0 ? $domain : '0'), 'symbol' => ($domain > 0 ? '✓' : '×')],
+            ['label' => 'Hidden fees', 'value' => ($hidden_fees ? 'Yes' : 'No'), 'symbol' => ($hidden_fees ? '✓' : '×')],
+        ];
+        
+        foreach ($features as $feature) {
+            echo "<p><span class='label'>{$feature['label']}</span><span class='value'>{$feature['value']} <span class='symbol-" . ($feature['symbol'] === '✓' ? 'vert' : 'rouge') . "'>{$feature['symbol']}</span></span></p>";
+        }
+        // Formulaires de commandes
         echo "<form method='post' action=''>";
         echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
         echo "<input type='hidden' name='commande[$formule]' value='$commande'>";
-        // Boutton
+        // Bouton join now
         echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
         echo "</form>";
         echo "</div>";
