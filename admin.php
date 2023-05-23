@@ -35,7 +35,6 @@ if (isset($_POST['update'])) {
     // header("Location: index.php");
     // exit;
 
-
     if($update->rowCount() > 0){
         echo "Vous avez bien modifié votre formule";
     }else{
