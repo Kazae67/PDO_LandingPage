@@ -1,29 +1,18 @@
-[II. Update pricing]
-Créer une interface servant à mettre à jour les données de pricing depuis un fichier
-admin.php
+[PRINCIPAUX]
+[Créer une interface servant à mettre à jour les données de pricing depuis un fichier admin.php] ✓
 [Trouver une méthode pour établir la connexion] ✓
 [Trouver un moyen de mettre à jour après la récupération (piste QUERY)] ✓
-[Trouver un moyen d'afficher l'erreur ou les champs vides]
-(1) Il faudra afficher un message de réussite ou d erreur
+[Trouver un moyen d'afficher l'erreur ou les champs vides] ✓
+[Il faudra afficher un message de réussite ou d erreur] ✓
+[Ajouter un compteur de formules commandées] ✓
+[Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)] ✓
+[Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand l utilisateur appuie sur « Join Now »] ✓
+[Afficher un message de notification à l utilisateur ]
+[Stocker les emails pour la newsletter]
+[Créer une table email en BDD et y ajouter un champs email]
+[Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »]
+[Afficher un message de notification à l’utilisateur]
 
 
-
-[III. Compteur]
-Ajouter un compteur de formules commandées
-
-(1) Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)
-(2) Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand
-    l utilisateur appuie sur « Join Now »
-(3) Afficher un message de notification à l utilisateur 
-
-[IV. Newsletter]
-Stocker les emails pour la newsletter
-
-(1) Créer une table email en BDD et y ajouter un champs email
-(2) Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur
-« Subscribe »
-(3) Afficher un message de notification à l’utilisateur 
-
-
-[NE PAS OUBLIER]
-// Créer des functions pour raccourcir le code et la lisibilité -> index.php[72]
+[ANNEXES]
+[Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]

@@ -1,10 +1,10 @@
 <?php
-// Cela inclut le fichier 'db-functions.php', qui contient probablement des fonctions ou des paramètres liés à la gestion de la base de données.
-require_once 'db-functions.php';
+// La ligne require_once 'db-functions.php' inclut le fichier db-functions.php, qui contient les fonctions nécessaires pour la connexion à la base de données.
+require_once '../DB/db-functions.php';
 ?>
 
 <!-- CSS -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <!-- Conteneur offres -->
 <div class="pricing-container">

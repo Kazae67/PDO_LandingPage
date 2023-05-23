@@ -1,10 +1,10 @@
 <?php
 // La ligne require_once 'db-functions.php' inclut le fichier db-functions.php, qui contient les fonctions nécessaires pour la connexion à la base de données.
-require_once 'db-functions.php';
+require_once 'DB/db-functions.php';
 ?>
 
 <!-- CSS -->
-<link rel="stylesheet" href="form-style.css">
+<link rel="stylesheet" href="css/form-style.css">
 
 <?php
 /**
@@ -50,12 +50,13 @@ if (isset($_POST['update'])) {
     // Message de validation de la modification formulaire
     if($update->rowCount() > 0){
         echo "Vous avez bien modifié votre formule";
+        header("Location: public/index.php");
+        exit;
     }else{
         echo "Malheuresement vous n'avez pas réussi à modifier votre formule";
     }
 }
-    // header("Location: index.php");
-    // exit;
+
 ?>
 
 <!-- 
