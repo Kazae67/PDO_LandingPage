@@ -150,16 +150,17 @@ if ($result->rowCount() > 0) {
 <?php
 
 /**
- * Sert à insérer l'email en base de données lorsque l'utilisateur appuie sur le bouton "Subscribe" :
+ * Sert à insérer l'email en base de données lorsque l'utilisateur appuie sur le bouton "Subscribe"
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
     $email = $_POST['email'];
-    $query = "INSERT INTO email (email) VALUES (:email)";
-    $insert = $db->prepare($query);
-    $insert->bindParam(':email', $email);
-    $insert->execute();
-
+    // Vérifier si l'email existe déjà en base de données
+    $query = "SELECT COUNT(*) FROM email WHERE email = :email";
+    $checkEmail = $db->prepare($query);
+    $checkEmail->bindParam(':email', $email);
+    $checkEmail->execute();
+    $count = $checkEmail->fetchColumn();
     // Afficher un message de notification à l'utilisateur
-    echo "<p>Thank you for subscribing!</p>";
+    echo "<p>Merci pour votre enregistrement!</p>";
 }
 
