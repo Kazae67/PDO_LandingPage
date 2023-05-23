@@ -139,4 +139,27 @@ if ($result->rowCount() > 0) {
     echo "Aucune formule de la base de données pricing trouvée.";
 }
 ?>
+
+<!-- PARTIE TESTING -->
+<form method="post" action="">
+  <input type="email" name="email" placeholder="Enter your email" required>
+  <button type="submit" name="subscribe">Subscribe</button>
+</form>
 </div>
+
+<?php
+
+/**
+ * Sert à insérer l'email en base de données lorsque l'utilisateur appuie sur le bouton "Subscribe" :
+ */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
+    $email = $_POST['email'];
+    $query = "INSERT INTO email (email) VALUES (:email)";
+    $insert = $db->prepare($query);
+    $insert->bindParam(':email', $email);
+    $insert->execute();
+
+    // Afficher un message de notification à l'utilisateur
+    echo "<p>Thank you for subscribing!</p>";
+}
+
