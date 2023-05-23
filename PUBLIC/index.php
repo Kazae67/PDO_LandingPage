@@ -160,7 +160,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
     $checkEmail->bindParam(':email', $email);
     $checkEmail->execute();
     $count = $checkEmail->fetchColumn();
-    // Afficher un message de notification à l'utilisateur
-    echo "<p>Merci pour votre enregistrement!</p>";
+
+    if ($count > 0) {
+        echo "<p>Email déjà soumis !</p>";
+    } else {
+        $query = "INSERT INTO email (email) VALUES (:email)";
+        $insert = $db->prepare($query);
+        $insert->bindParam(':email', $email);
+        $insert->execute();
+
+        echo "<p>Merci pour votre enregistrement !</p>";
+    }
 }
 
