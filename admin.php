@@ -2,6 +2,8 @@
 // Require pour la connexion
 require_once 'db-functions.php';
 ?>
+
+<!-- CSS -->
 <link rel="stylesheet" href="form-style.css">
 
 <?php
@@ -35,6 +37,7 @@ if (isset($_POST['update'])) {
     // header("Location: index.php");
     // exit;
 
+    // Erreur modification formulaire
     if($update->rowCount() > 0){
         echo "Vous avez bien modifié votre formule";
     }else{
