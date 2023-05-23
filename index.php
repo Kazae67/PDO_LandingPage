@@ -84,12 +84,12 @@ if ($result->rowCount() > 0) {
         echo "<p><span class='label'>Domain</span><span class='value'>" . ($domain > 0 ? $domain . " <span class='symbol-vert'>✓</span>" : "0 <span class='symbol-rouge'>×</span>") . "</span></p>";
         echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
 
-        // commande et incrémentation
+        // formulaire commande
         echo "<form method='post' action=''>";
         echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
-
-        // formulaire commande
         echo "<input type='hidden' name='commande[$formule]' value='$commande'>";
+        
+        // Boutton
         echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
         echo "</form>";
        
