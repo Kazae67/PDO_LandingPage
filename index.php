@@ -9,7 +9,6 @@ require_once 'db-functions.php';
 <div class="pricing-container">
 
 <?php
-
 /**
  * Database
  * découverte INTVAL
@@ -33,6 +32,7 @@ $result = $db->query($query);
 
 // Vérifier s'il y a des résultats
 if ($result->rowCount() > 0) {
+    
     // Parcourir les résultats
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $formule = $row['formule']; 
@@ -88,11 +88,10 @@ if ($result->rowCount() > 0) {
         echo "<form method='post' action=''>";
         echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
         echo "<input type='hidden' name='commande[$formule]' value='$commande'>";
-        
+
         // Boutton
         echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
         echo "</form>";
-       
         echo "</div>";
     }
 } else {
