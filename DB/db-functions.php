@@ -23,12 +23,6 @@ $password = '';
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->exec("
-    CREATE TABLE IF NOT EXISTS email (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(255) NOT NULL
-    )
-");
 } catch (PDOException $err) {
     echo "Erreur de connexion à la base de données : " . $err->getMessage();
     exit;

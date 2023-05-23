@@ -4,7 +4,7 @@ require_once 'DB/db-functions.php';
 ?>
 
 <!-- CSS -->
-<link rel="stylesheet" href="css/form-style.css">
+<link rel="stylesheet" href="PUBLIC/css/form-style.css">
 
 <?php
 /**
