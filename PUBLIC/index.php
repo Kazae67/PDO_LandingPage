@@ -91,7 +91,7 @@ if ($result->rowCount() > 0) {
             } elseif ($formule == "Professional") { // Vérifier si c'est la formule "Professional".
                 echo "<p class='reduction'>$reduction%<br>sale</p>";
             } else {
-                echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 dans la BDD pour le %.
+                echo "<p>Réduction : -$reduction %</p>"; // Décimal en 5,2 dans la BDD pour le % de la réduction.
             }
         }
         /**
