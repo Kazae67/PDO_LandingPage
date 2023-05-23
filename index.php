@@ -1,13 +1,32 @@
 <?php
 require_once 'db-functions.php';
-
 ?>
+
+<!-- CSS -->
 <link rel="stylesheet" href="style.css">
+
 <!-- Conteneur offres -->
 <div class="pricing-container">
 
-<!-- test -->
 <?php
+
+/**
+ * Database
+ * découverte INTVAL
+ * https://www.php.net/manual/fr/pdostatement.execute.php
+ */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    foreach ($_POST['commande'] as $formule => $commande) {
+        // Vérification des données envoyées
+        $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
+        $update = $db->prepare($query);
+        $commande = intval($commande) + 1;
+        $update->bindParam(':commande', $commande);
+        $update->bindParam(':formule', $formule);
+        $update->execute();
+    }
+}
+
 // Requête pour récupérer les formules de pricing depuis la base de données heidiSQL
 $query = "SELECT * FROM pricing_db";
 $result = $db->query($query);
@@ -28,15 +47,6 @@ if ($result->rowCount() > 0) {
         $hidden_fees = $row['hidden_fees'];
         $commande = $row['commande'];
 
-        // if (isset($_POST['update'])) {
-        //     // Vérification des données envoyées
-        //     $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
-        //     $update = $db->prepare($query);
-        //     $commande = $_POST['commande'] == '1' ? +1 : 0;
-        //     $update->bindParam(':commande', $commande);
-        //     $update->execute();
-        // }
-        
         // bandwidth en GB si elle dépasse 999MB
         if ($bandwidth > 999) {
             $bandwidth = round($bandwidth / 999, 1) . 'GB';
@@ -75,8 +85,13 @@ if ($result->rowCount() > 0) {
         echo "<p><span class='label'>Hidden fees</span><span class='value'>" . ($hidden_fees ? "Yes <span class='symbol-vert'>✓</span>" : "No <span class='symbol-rouge'>×</span>") . "</span></p>";
 
         // commande et incrémentation
-        echo "<p>commande : <span id='commande'". $formule ."'>$commande</span></p>";
-        echo "<button class='join-button' type='submit' name='update' value='Update' onclick='ajouter(\"$commande\")'>Join Now</button>";
+        echo "<form method='post' action=''>";
+        echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
+
+        // formulaire commande
+        echo "<input type='hidden' name='commande[$formule]' value='$commande'>";
+        echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
+        echo "</form>";
        
         echo "</div>";
     }
