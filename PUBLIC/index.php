@@ -7,6 +7,7 @@ require_once '../DB/db-functions.php';
 <link rel="stylesheet" href="css/style.css">
 
 <?php
+// affichage
 affichage();
 
 ?>

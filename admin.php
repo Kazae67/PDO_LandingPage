@@ -13,6 +13,7 @@ require_once 'DB/db-functions.php';
  */
 
  // [METTRE DANS DB]
+
 if (isset($_POST['update'])) { 
     // Vérification des données envoyées
     $formule = $_POST['name'];
