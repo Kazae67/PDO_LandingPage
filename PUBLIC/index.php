@@ -27,6 +27,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->bindParam(':formule', $formule);
         $update->execute();
     }
+
+        // [DEBUT TESTING]
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe'])) {
+        $email = $_POST['email'];
+
+        // Vérification des données envoyées
+
+        $query = "INSERT INTO email (email) VALUES (:email)";
+        $insert = $db->prepare($query);
+        $insert->bindParam(':email', $email);
+        $insert->execute();
+
+        // Afficher un message de notification à l'utilisateur
+
+        echo "Merci de vous être abonné !";
+    }
+        // [FIN TESTING]
 }
 
 /**
