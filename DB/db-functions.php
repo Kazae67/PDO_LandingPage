@@ -46,3 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+/**
+ * La requête SQL SELECT * FROM pricing_db est exécutée pour récupérer toutes les formules de tarification à partir de la base de données. 
+ * Les résultats sont stockés dans la variable $result.
+ */
+$query = "SELECT * FROM pricing_db";
+$result = $db->query($query);
+
+

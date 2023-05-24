@@ -12,36 +12,6 @@ require_once '../DB/db-functions.php';
 <?php
 
 /**
- * La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST. 
- * S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
- * Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
- * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
- */
-
-
-// [METTRE DANS DB]
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    foreach ($_POST['commande'] as $formule => $commande) {
-        // Vérification des données envoyées
-        $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
-        $update = $db->prepare($query);
-        $commande = intval($commande) + 1;
-        $update->bindParam(':commande', $commande);
-        $update->bindParam(':formule', $formule);
-        $update->execute();
-    }
-}
-
-/**
- * La requête SQL SELECT * FROM pricing_db est exécutée pour récupérer toutes les formules de tarification à partir de la base de données. 
- * Les résultats sont stockés dans la variable $result.
- */
-
- // [METTRE DANS DB]
-$query = "SELECT * FROM pricing_db";
-$result = $db->query($query);
-
-/**
  * La condition if ($result->rowCount() > 0) vérifie s'il y a des résultats de la requête. 
  * Si c'est le cas, la boucle while est utilisée pour parcourir chaque ligne de résultat et afficher les détails de chaque formule de tarification.
  */
