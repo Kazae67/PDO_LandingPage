@@ -11,6 +11,8 @@ require_once 'DB/db-functions.php';
  * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
  * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
  */
+
+ // [METTRE DANS DB]
 if (isset($_POST['update'])) { 
     // Vérification des données envoyées
     $formule = $_POST['name'];
@@ -69,7 +71,7 @@ if (isset($_POST['update'])) {
 * Lorsque l'utilisateur soumet l'un des formulaires en cliquant sur le bouton "Update", 
 * les données du formulaire sont envoyées à la même page (admin.php) et traitées selon les étapes mentionnées précédemment.
 -->
-<!-- Form Starter -->
+<!-- Form Starter [A CHANGER] -->
 <form action="admin.php" method="POST">
     <h2>Starter</h2>
     <input type="hidden" name="formule" value="Starter">

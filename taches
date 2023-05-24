@@ -7,12 +7,15 @@
 [Ajouter un compteur de formules commandées] ✓
 [Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)] ✓
 [Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand l utilisateur appuie sur « Join Now »] ✓
-[Afficher un message de notification à l utilisateur ]
+[Afficher un message de notification à l utilisateur ]  ✓
 [Stocker les emails pour la newsletter]
 [Créer une table email en BDD et y ajouter un champs email]
 [Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »]
 [Afficher un message de notification à l’utilisateur]
 
 
+
 [ANNEXES]
-[Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]
+[Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
+[Changer les formulaires pour les mettres dans un foreach ou choisir d'utiliser un système de selecteur id avec 1 formulaire]
+[Mettre les récupérations directement dans le dossier de db-functions (bien tester à chaque copier collé)]
