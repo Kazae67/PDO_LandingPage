@@ -56,7 +56,6 @@ if (isset($_POST['update'])) {
         echo "Malheuresement vous n'avez pas réussi à modifier votre formule";
     }
 }
-
 ?>
 
 <!-- 
