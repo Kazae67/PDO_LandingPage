@@ -11,7 +11,7 @@ require_once 'DB/db-functions.php';
  * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
  * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
  */
-if (isset($_POST['update'])) {
+if (isset($_POST['update'])) { 
     // Vérification des données envoyées
     $formule = $_POST['name'];
     $prix = $_POST['price'];
