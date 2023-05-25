@@ -27,8 +27,8 @@ formatValue($value);
  * (9) Un formulaire de commande est affiché avec la valeur de la commande extraite de la base de données, ainsi qu'un boutton.
  * 
  */
- $query = "SELECT * FROM pricing_db"; // (1)
- $result = connection()->query($query); // (2)
+$query = "SELECT * FROM pricing_db"; // (1)
+$result = connection()->query($query); // (2)
  
 if ($result->rowCount() > 0) { // (3)
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // (4)
