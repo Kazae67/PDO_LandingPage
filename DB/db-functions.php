@@ -124,9 +124,17 @@ function formatValue($value){
     }
 }
 
-// Affichage label, valeur, symbol
-function displayFeature($label, $value, $symbol)
+/**
+ * (1) La fonction displayFeature est définie avec trois paramètres : $label, $value et $symbol. 
+ *     Cette fonction est utilisée pour afficher une fonctionnalité (label), sa valeur correspondante et un symbole associé.
+ * (2) Une variable $class est déclarée et initialisée en fonction du symbole donné. 
+ *     Si le symbole est égal à '✓', la variable $class est définie sur 'vert'. 
+ *     Sinon, si le symbole est différent, la variable $class est définie sur 'rouge'. 
+ * (3) Le premier <span> a la classe CSS 'label', le deuxième <span> a la classe CSS 'value'.
+ *     À l'intérieur de ce <span>, il y a un autre <span> qui a une classe CSS dynamique 'symbol-$class'. Cette classe sera 'symbol-vert' si le symbole est '✓'.
+ */
+function displayFeature($label, $value, $symbol) // (1)
 {
-    $class = ($symbol === '✓') ? 'vert' : 'rouge';
-    echo "<p><span class='label'>$label</span><span class='value'>$value <span class='symbol-$class'>$symbol</span></span></p>";
+    $class = ($symbol === '✓') ? 'vert' : 'rouge'; // (2)
+    echo "<p><span class='label'>$label</span><span class='value'>$value <span class='symbol-$class'>$symbol</span></span></p>"; // (3)
 }
