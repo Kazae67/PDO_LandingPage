@@ -81,14 +81,11 @@ function updateForm($db) {
 
 /**
  * I_N_D_E_X____________________________________________________________________________________________________________________________
- */
-/**
  * La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST. 
  * S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
  * Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
  * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
  */
-
  function ajouterCommande(){
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -104,3 +101,4 @@ function updateForm($db) {
         }
     }
 }
+ 
