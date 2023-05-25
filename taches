@@ -19,3 +19,6 @@
 [Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
 [Changer les formulaires pour les mettres dans un foreach ou choisir d'utiliser un système de selecteur id avec 1 formulaire]
 [Mettre les récupérations directement dans le dossier de db-functions (bien tester à chaque copier collé)]
+[Transformer tout en functions et les placer dans db-functions]
+[Réussir à appeler les functions dans la vue]
+[Corriger l'affichage "afficher réduction" dans starter]

@@ -27,13 +27,12 @@ function connection(){
         }
     }
 
-
 /**
  * // A_D_M_I_N_____________________________________________________________________________________________________________________________
  * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
  * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
  */
-function updateFormData($db) {
+function updateForm($db) {
     if (isset($_POST['update'])) {
         // Vérification des données envoyées
         $formule = $_POST['name'];
@@ -83,3 +82,25 @@ function updateFormData($db) {
 /**
  * I_N_D_E_X____________________________________________________________________________________________________________________________
  */
+/**
+ * La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST. 
+ * S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
+ * Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
+ * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
+ */
+
+ function ajouterCommande(){
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $db = connection();
+        foreach ($_POST['commande'] as $formule => $commande) {
+            // Vérification des données envoyées
+            $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
+            $update = $db->prepare($query);
+            $commande = intval($commande) + 1;
+            $update->bindParam(':commande', $commande);
+            $update->bindParam(':formule', $formule);
+            $update->execute();
+        }
+    }
+}
