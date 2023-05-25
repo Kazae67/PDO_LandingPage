@@ -5,8 +5,8 @@ require_once 'DB/db-functions.php';
 
 <!-- CSS -->
 <link rel="stylesheet" href="PUBLIC/css/form-style.css">
-
 <?php
+
 // Function(s)
 updateForm(connection());
 
@@ -63,4 +63,5 @@ foreach ($formules as $formule) {
     </form>
     <?php
 }
+
 ?>
