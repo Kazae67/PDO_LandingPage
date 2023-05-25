@@ -80,23 +80,32 @@ function updateForm($db) { // (1)
 }
 
 /**
- * I_N_D_E_X____________________________________________________________________________________________________________________________
- * La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST. 
- * S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
- * Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
- * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
+ * __________I___N___D___E___X__________
+ * (1) La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST, permet de déterminer si un formulaire a été soumis.
+ *     S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
+ * (2) La fonction connection() est appelée pour établir une connexion à la base de données.
+ * (3) La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
+ *     Les données de commande sont accessibles via $_POST['commande'], et chaque élément de ce tableau correspond à une valeur de commande pour une formule spécifique.
+ *     Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
+ * (4) Une requête SQL est préparée pour mettre à jour les données de commande dans la table pricing_db. 
+ *     La requête utilise des paramètres avec des marqueurs de nom (:commande et :formule) pour éviter les injections SQL. (https://www.php.net/manual/fr/pdo.prepare.php)
+ * (5) La valeur de commande est incrémentée de 1 en utilisant intval($commande) + 1. 
+ *     La fonction intval() est utilisée pour s'assurer que la valeur est un entier. (https://www.php.net/manual/fr/function.intval.php)
+ * (6) Les valeurs de commande et de formule sont liées aux paramètres de la requête préparée en utilisant les méthodes bindParam() du statement préparé. (https://www.php.net/manual/fr/pdostatement.bindparam.php)
+ * (7) La requête est exécutée en utilisant la méthode execute(). (https://www.php.net/manual/en/pdostatement.execute.php)
  */
  function ajouterCommande(){
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $db = connection();
-        foreach ($_POST['commande'] as $formule => $commande) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') { // (1)
+        $db = connection(); // (2)
+        foreach ($_POST['commande'] as $formule => $commande) { // (3)
+            
             // Vérification des données envoyées
             $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
-            $update = $db->prepare($query);
-            $commande = intval($commande) + 1;
-            $update->bindParam(':commande', $commande);
+            $update = $db->prepare($query); // (4)
+            $commande = intval($commande) + 1; // (5)
+            $update->bindParam(':commande', $commande); // (6)
             $update->bindParam(':formule', $formule);
-            $update->execute();
+            $update->execute(); // (7)
         }
     }
 }
