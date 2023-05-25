@@ -19,30 +19,37 @@ $formules = array(
 
 foreach ($formules as $formule) {
     ?>
+    
     <form action="admin.php" method="POST">
         <h2><?php echo $formule; ?></h2>
         <input type="hidden" name="formule" value="<?php echo $formule; ?>">
 
+         <!-- Champ "Name" -->
         <label for="name">Name:</label>
         <input type="text" name="name" required>
         <br>
 
+        <!-- Champ "Price" -->
         <label for="price">Price:</label>
         <input type="text" name="price" required>
         <br>
 
+        <!-- Champ "Sale" -->
         <label for="sale">Sale:</label>
         <input type="text" name="sale" required>
         <br>
 
+        <!-- Champ "Bandwidth" -->
         <label for="bandwidth">Bandwidth:</label>
         <input type="text" name="bandwidth" required>
         <br>
 
+        <!-- Champ "Onlinespace" -->
         <label for="onlinespace">Onlinespace:</label>
         <input type="text" name="onlinespace" required>
         <br>
 
+        <!-- Champ "Support" -->
         <label for="support">Support:</label>
         <input type="text" name="support" required>
         <br>
@@ -51,10 +58,12 @@ foreach ($formules as $formule) {
         <input type="text" name="domain" required>
         <br>
 
+        <!-- Champ "Domain" -->
         <label for="hidden_fees">Hidden fees:</label>
         <input type="text" name="hidden_fees" required>
         <br>
 
+        <!-- Champ "Hidden fees" -->
         <label for="commande">Commande:</label>
         <input type="text" name="commande" required>
         <br>
@@ -63,5 +72,4 @@ foreach ($formules as $formule) {
     </form>
     <?php
 }
-
 ?>
