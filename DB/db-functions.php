@@ -79,8 +79,7 @@ function updateForm($db) { // (1)
     }
 }
 
-/**
- * __________I___N___D___E___X__________
+/**__________I___N___D___E___X__________
  * (1) La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST, permet de déterminer si un formulaire a été soumis.
  *     S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
  * (2) La fonction connection() est appelée pour établir une connexion à la base de données.
@@ -138,3 +137,5 @@ function displayFeature($label, $value, $symbol) // (1)
     $class = ($symbol === '✓') ? 'vert' : 'rouge'; // (2)
     echo "<p><span class='label'>$label</span><span class='value'>$value <span class='symbol-$class'>$symbol</span></span></p>"; // (3)
 }
+
+?>
