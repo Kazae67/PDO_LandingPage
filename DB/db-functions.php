@@ -1,6 +1,6 @@
 <?php
 /**
- * D_N_S_________________________________________________________________________________________________________________________________
+ * __________D___N___S___________________
  * (1) Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
  * (2) Commence une structure try-catch pour gérer les exceptions qui pourraient se produire lors de la connexion à la base de données.
  *     Dans le bloc try, une nouvelle instance de la classe PDO est créée pour établir la connexion avec la base de données. 
@@ -26,15 +26,23 @@ function connection(){
         }
     }
 
-/**
- * // A_D_M_I_N_____________________________________________________________________________________________________________________________
- * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
- * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
- */
-function updateForm($db) {
-    if (isset($_POST['update'])) {
+/** __________A___D___M___I___N__________
+* (1) La fonction updateForm($db) prend en paramètre une instance de connexion à la base de données $db.
+* (2) La condition if (isset($_POST['update'])) vérifie si la clé 'update' existe dans le tableau $_POST. 
+*     Cela permet de déterminer si le formulaire a été soumis, car le bouton "Update" doit avoir l'attribut name="update".
+* (3) Les données du formulaire sont récupérées à partir de $_POST et sont assignées à des variables. Les valeurs récupérées représentent les champs du formulaire.
+* (4) Le code prépare une requête SQL pour mettre à jour les données dans la base de données. (https://www.php.net/manual/fr/pdo.prepare.php)
+* (5) Les variables sont liées aux paramètres de la requête SQL à l'aide de la méthode bindParam() de l'objet $update. (https://www.php.net/manual/fr/pdostatement.bindparam)
+*     Cela permet de sécuriser la requête en évitant les injections SQL. 
+* (6) La méthode execute() est appelée sur l'objet $update pour exécuter la requête de mise à jour dans la base de données. (https://www.php.net/manual/fr/pdostatement.execute)
+* (7) Après la mise à jour, le code vérifie si des lignes ont été affectées par la requête en utilisant la méthode rowCount() sur l'objet $update. 
+*     La méthode rowCount() retourne le nombre de lignes affectées par la dernière requête d'exécution. 
+*     Si des lignes ont été affectées, cela signifie que la mise à jour a réussi. (https://www.php.net/manual/en/pdostatement.rowcount.php)
+*/
+function updateForm($db) { // (1)
+    if (isset($_POST['update'])) { // (2)
         // Vérification des données envoyées
-        $formule = $_POST['name'];
+        $formule = $_POST['name']; // (3)
         $prix = $_POST['price'];
         $reduction = $_POST['sale'];
         $bandwidth = $_POST['bandwidth'];
@@ -43,21 +51,13 @@ function updateForm($db) {
         $domain = $_POST['domain'];
         $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
         $commande = $_POST['commande'];
-        /**
-         * Les données du formulaire sont récupérées à partir de $_POST et sont assignées à des variables. 
-         * Les variables incluent formule, prix, reduction, bandwidth, onlinespace, support, domain, hidden_fees et commande. 
-         * Ces valeurs correspondent aux champs du formulaire.
-         * Ensuite, le code prépare une requête SQL pour mettre à jour les données dans la base de données. 
-         * La requête utilise des paramètres nommés (par exemple, :prix, :reduction, etc.) pour les valeurs qui seront liées ultérieurement.
-         * Les variables sont liées aux paramètres de la requête SQL à l'aide de la méthode bindParam() de l'objet $update. (https://www.php.net/manual/fr/pdostatement.bindparam)
-         * Cela permet de sécuriser la requête en évitant les injections SQL. 
-         * La méthode execute() est appelée sur l'objet $update pour exécuter la requête de mise à jour dans la base de données. (https://www.php.net/manual/fr/pdostatement.execute)
-         * Après la mise à jour, le code vérifie si des lignes ont été affectées par la requête en utilisant la méthode rowCount(). 
-         * Si des lignes ont été affectées, le message de validation est affiché, sinon, le message d'erreur apparaît.
-         */
+
+        // Requête de mise à jour des données dans la base de donnée
         $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees, commande = :commande WHERE formule = :formule";
-        $update = $db->prepare($query);
-        $update->bindParam(':prix', $prix);
+
+        // Liaison des valeurs aux paramètres de la requête
+        $update = $db->prepare($query); // (4)
+        $update->bindParam(':prix', $prix); // (5)
         $update->bindParam(':reduction', $reduction);
         $update->bindParam(':bandwidth', $bandwidth);
         $update->bindParam(':onlinespace', $onlinespace);
@@ -66,9 +66,10 @@ function updateForm($db) {
         $update->bindParam(':hidden_fees', $hidden_fees);
         $update->bindParam(':formule', $formule);
         $update->bindParam(':commande', $commande);
-        $update->execute();
+        $update->execute(); // (6)
+
         // Message de validation de la modification formulaire
-        if($update->rowCount() > 0){
+        if($update->rowCount() > 0){ // (7)
             echo "Vous avez bien modifié votre formule";
             header("Location: public/index.php");
             exit;
