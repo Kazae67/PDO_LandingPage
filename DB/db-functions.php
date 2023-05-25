@@ -87,7 +87,6 @@ function updateForm($db) {
  * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
  */
  function ajouterCommande(){
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db = connection();
         foreach ($_POST['commande'] as $formule => $commande) {
@@ -101,4 +100,17 @@ function updateForm($db) {
         }
     }
 }
- 
+
+function formatValue($value){
+    if ($value > 999) {
+        return round($value / 999, 1) . 'GB';
+    } else {
+        return $value . 'MB';
+    }
+}
+
+function displayFeature($label, $value, $symbol)
+{
+    $class = ($symbol === '✓') ? 'vert' : 'rouge';
+    echo "<p><span class='label'>$label</span><span class='value'>$value <span class='symbol-$class'>$symbol</span></span></p>";
+}
