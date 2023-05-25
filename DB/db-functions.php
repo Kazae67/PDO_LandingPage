@@ -1,29 +1,28 @@
 <?php
 /**
  * D_N_S_________________________________________________________________________________________________________________________________
- * Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
- * remplacer les valeurs par les informations de connexion réelles de la base de données.
- * Commence une structure try-catch pour gérer les exceptions qui pourraient se produire lors de la connexion à la base de données.
- * Dans le bloc try, une nouvelle instance de la classe PDO est créée pour établir la connexion avec la base de données. 
- * La chaîne de connexion est construite en utilisant les valeurs des variables $host, $dbname, $username et $password.
- * La méthode setAttribute est appelée sur l'objet PDO pour configurer le mode d'erreur. 
- * Ici, nous utilisons PDO::ATTR_ERRMODE avec la valeur PDO::ERRMODE_EXCEPTION, ce qui signifie que les exceptions seront levées en cas d'erreur.
- * Si une exception de type PDOException est levée pendant la tentative de connexion à la base de données, le bloc catch est exécuté.
- * Dans le bloc catch, un message d'erreur est affiché, qui inclut le message d'erreur spécifique retourné par l'exception PDO. 
- * Ensuite, le script est arrêté en utilisant la fonction exit.
+ * (1) Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
+ * (2) Commence une structure try-catch pour gérer les exceptions qui pourraient se produire lors de la connexion à la base de données.
+ *     Dans le bloc try, une nouvelle instance de la classe PDO est créée pour établir la connexion avec la base de données. 
+ * (3) La chaîne de connexion est construite en utilisant les valeurs des variables $host, $dbname, $username et $password.
+ * (4) La méthode setAttribute est appelée sur l'objet PDO pour configurer le mode d'erreur. 
+ *     Nous utilisons PDO::ATTR_ERRMODE avec la valeur PDO::ERRMODE_EXCEPTION, ce qui signifie que les exceptions seront levées en cas d'erreur.
+ * (5) Si une exception de type PDOException est levée pendant la tentative de connexion à la base de données, le bloc catch est exécuté.
+ * (6) Un message d'erreur est affiché, qui inclut le message d'erreur spécifique retourné par l'exception PDO. 
+ * (7) Le script s'arrête en utilisant la fonction exit.
  */
 function connection(){
-    $host = 'localhost';
+    $host = 'localhost'; // (1)
     $dbname = 'pricing';
     $username = 'root';
     $password = '';
-    try {
-        $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try { // (2)
+        $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password); // (3)
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // (4)
         return $db;
-        } catch (PDOException $err) {
-            echo "Erreur de connexion à la base de données : " . $err->getMessage();
-            exit;
+        } catch (PDOException $err) { // (5)
+            echo "Erreur de connexion à la base de données : " . $err->getMessage(); // (6)
+            exit; // (7)
         }
     }
 
@@ -109,6 +108,7 @@ function formatValue($value){
     }
 }
 
+// Affichage label, valeur, symbol
 function displayFeature($label, $value, $symbol)
 {
     $class = ($symbol === '✓') ? 'vert' : 'rouge';
