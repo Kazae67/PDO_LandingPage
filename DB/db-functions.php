@@ -110,11 +110,17 @@ function updateForm($db) { // (1)
     }
 }
 
+/**
+ * (1) La condition if ($value > 999) vérifie si la valeur donnée est supérieure à 999. Cela permet de déterminer si la valeur est exprimée en (MB) ou en (GB).
+ * (2) Si la condition est vraie, cela signifie que la valeur est supérieure à 999 et doit être convertie en GB. 
+ *     La valeur est divisée par 999 et le résultat est arrondi à une décimale en utilisant la fonction round($value / 999, 1). 
+ * (3) Si ce n'est pas le cas, la valeur sera en MB.
+ */
 function formatValue($value){
-    if ($value > 999) {
-        return round($value / 999, 1) . 'GB';
+    if ($value > 999) { // (1)
+        return round($value / 999, 1) . 'GB'; // (2)
     } else {
-        return $value . 'MB';
+        return $value . 'MB'; // (3)
     }
 }
 
