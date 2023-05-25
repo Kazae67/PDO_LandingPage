@@ -26,4 +26,5 @@
 [Améliorer les commentaires db-functions] ✓
 [Améliorer les commentaires d'admin]
 [Améliorer le css d'admin.php] (problème avec css de mander éventuellement au formateur)
-[Remplissage automatique de préférence sur le formulaire admin] 
+[Remplissage automatique de préférence sur le formulaire admin]
+[Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support]
