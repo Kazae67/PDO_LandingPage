@@ -7,7 +7,7 @@ require_once 'DB/db-functions.php';
 <link rel="stylesheet" href="PUBLIC/css/form-style.css">
 
 <?php
-updateFormData($db);
+updateFormData(connection());
 ?>
 
 <!-- 

@@ -3,13 +3,6 @@
  * D_N_S_________________________________________________________________________________________________________________________________
  * Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
  * remplacer les valeurs par les informations de connexion réelles de la base de données.
-*/
-$host = 'localhost';
-$dbname = 'pricing';
-$username = 'root';
-$password = '';
-
-/**
  * Commence une structure try-catch pour gérer les exceptions qui pourraient se produire lors de la connexion à la base de données.
  * Dans le bloc try, une nouvelle instance de la classe PDO est créée pour établir la connexion avec la base de données. 
  * La chaîne de connexion est construite en utilisant les valeurs des variables $host, $dbname, $username et $password.
@@ -19,14 +12,20 @@ $password = '';
  * Dans le bloc catch, un message d'erreur est affiché, qui inclut le message d'erreur spécifique retourné par l'exception PDO. 
  * Ensuite, le script est arrêté en utilisant la fonction exit.
  */
-try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $err) {
-    echo "Erreur de connexion à la base de données : " . $err->getMessage();
-    exit;
-}
-
+function connection(){
+    $host = 'localhost';
+    $dbname = 'pricing';
+    $username = 'root';
+    $password = '';
+    try {
+        $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $db;
+        } catch (PDOException $err) {
+            echo "Erreur de connexion à la base de données : " . $err->getMessage();
+            exit;
+        }
+    }
 
 
 /**
