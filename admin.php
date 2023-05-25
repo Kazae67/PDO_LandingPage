@@ -10,7 +10,7 @@ require_once 'DB/db-functions.php';
 // Function(s)
 updateForm(connection());
 
-// Formulaires
+// Formules
 $formules = array(
     "Starter",
     "Professional",
@@ -19,7 +19,7 @@ $formules = array(
 
 foreach ($formules as $formule) {
     ?>
-    
+    <!-- Début du formulaire -->
     <form action="admin.php" method="POST">
         <h2><?php echo $formule; ?></h2>
         <input type="hidden" name="formule" value="<?php echo $formule; ?>">
@@ -54,16 +54,17 @@ foreach ($formules as $formule) {
         <input type="text" name="support" required>
         <br>
 
+        <!-- Champ "Domain" -->
         <label for="domain">Domain:</label>
         <input type="text" name="domain" required>
         <br>
 
-        <!-- Champ "Domain" -->
+        <!-- Champ "Hidden fees" -->
         <label for="hidden_fees">Hidden fees:</label>
         <input type="text" name="hidden_fees" required>
         <br>
 
-        <!-- Champ "Hidden fees" -->
+        <!-- Champ "Commande" -->
         <label for="commande">Commande:</label>
         <input type="text" name="commande" required>
         <br>
