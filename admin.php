@@ -68,6 +68,7 @@ foreach ($formules as $formule) {
         <input type="text" name="commande" required>
         <br>
 
+        <!-- Bouton de soumission -->
         <input type="submit" name="update" value="Update">
     </form>
     <?php
