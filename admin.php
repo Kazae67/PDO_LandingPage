@@ -22,6 +22,7 @@ updateForm(connection());
 * Lorsque l'utilisateur soumet l'un des formulaires en cliquant sur le bouton "Update", 
 * les données du formulaire sont envoyées à la même page (admin.php) et traitées selon les étapes mentionnées précédemment.
 -->
+
 <!-- Form Starter [A CHANGER] -->
 <form action="admin.php" method="POST">
     <h2>Starter</h2>
