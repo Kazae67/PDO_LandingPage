@@ -1,7 +1,6 @@
-<!-- Il est important de noter que ce code doit être placé avant toute autre opération d'accès à la base de données, car il établit la connexion nécessaire pour ces opérations. -->
-
 <?php
 /**
+ * D_N_S_________________________________________________________________________________________________________________________________
  * Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
  * remplacer les valeurs par les informations de connexion réelles de la base de données.
 */
@@ -28,29 +27,60 @@ try {
     exit;
 }
 
+
+
 /**
- * La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST. 
- * S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
- * Si c'est le cas, cela signifie qu'un formulaire a été soumis et les données de commande doivent être mises à jour dans la base de données. 
- * La boucle foreach parcourt les données de commande envoyées par le formulaire et exécute une requête SQL pour mettre à jour les données correspondantes dans la table 'pricing_db'.
+ * // A_D_M_I_N_____________________________________________________________________________________________________________________________
+ * Le code vérifie si le formulaire a été soumis en vérifiant si $_POST['update'] est défini. 
+ * Cela signifie que le code suivant s'exécute lorsque le bouton "Update" est cliqué pour soumettre le formulaire.
  */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    foreach ($_POST['commande'] as $formule => $commande) {
+function updateFormData($db) {
+    if (isset($_POST['update'])) {
         // Vérification des données envoyées
-        $query = "UPDATE pricing_db SET commande = :commande WHERE formule = :formule";
+        $formule = $_POST['name'];
+        $prix = $_POST['price'];
+        $reduction = $_POST['sale'];
+        $bandwidth = $_POST['bandwidth'];
+        $onlinespace = $_POST['onlinespace'];
+        $support = $_POST['support'] == 'Yes' ? 1 : 0;
+        $domain = $_POST['domain'];
+        $hidden_fees = $_POST['hidden_fees'] == 'Yes' ? 1 : 0;
+        $commande = $_POST['commande'];
+        /**
+         * Les données du formulaire sont récupérées à partir de $_POST et sont assignées à des variables. 
+         * Les variables incluent formule, prix, reduction, bandwidth, onlinespace, support, domain, hidden_fees et commande. 
+         * Ces valeurs correspondent aux champs du formulaire.
+         * Ensuite, le code prépare une requête SQL pour mettre à jour les données dans la base de données. 
+         * La requête utilise des paramètres nommés (par exemple, :prix, :reduction, etc.) pour les valeurs qui seront liées ultérieurement.
+         * Les variables sont liées aux paramètres de la requête SQL à l'aide de la méthode bindParam() de l'objet $update. (https://www.php.net/manual/fr/pdostatement.bindparam)
+         * Cela permet de sécuriser la requête en évitant les injections SQL. 
+         * La méthode execute() est appelée sur l'objet $update pour exécuter la requête de mise à jour dans la base de données. (https://www.php.net/manual/fr/pdostatement.execute)
+         * Après la mise à jour, le code vérifie si des lignes ont été affectées par la requête en utilisant la méthode rowCount(). 
+         * Si des lignes ont été affectées, le message de validation est affiché, sinon, le message d'erreur apparaît.
+         */
+        $query = "UPDATE pricing_db SET prix = :prix, reduction = :reduction, bandwidth = :bandwidth, onlinespace = :onlinespace, support = :support, domain = :domain, hidden_fees = :hidden_fees, commande = :commande WHERE formule = :formule";
         $update = $db->prepare($query);
-        $commande = intval($commande) + 1;
-        $update->bindParam(':commande', $commande);
+        $update->bindParam(':prix', $prix);
+        $update->bindParam(':reduction', $reduction);
+        $update->bindParam(':bandwidth', $bandwidth);
+        $update->bindParam(':onlinespace', $onlinespace);
+        $update->bindParam(':support', $support);
+        $update->bindParam(':domain', $domain);
+        $update->bindParam(':hidden_fees', $hidden_fees);
         $update->bindParam(':formule', $formule);
+        $update->bindParam(':commande', $commande);
         $update->execute();
+        // Message de validation de la modification formulaire
+        if($update->rowCount() > 0){
+            echo "Vous avez bien modifié votre formule";
+            header("Location: public/index.php");
+            exit;
+        }else{
+            echo "Malheureusement vous n'avez pas réussi à modifier votre formule";
+        }
     }
 }
 
 /**
- * La requête SQL SELECT * FROM pricing_db est exécutée pour récupérer toutes les formules de tarification à partir de la base de données. 
- * Les résultats sont stockés dans la variable $result.
+ * I_N_D_E_X____________________________________________________________________________________________________________________________
  */
-$query = "SELECT * FROM pricing_db";
-$result = $db->query($query);
-
-
