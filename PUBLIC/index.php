@@ -45,7 +45,7 @@ if ($result->rowCount() > 0) { // (3)
         $commande = $row['commande'];
 
         // Boîte de tarification.
-        echo "<div class='pricing-box'>";
+        echo "<div class='pricing-box' style='box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);'>"; // Ajout de l'ombre (9)
         echo "<h2>$formule</h2>";
         echo "<p><span class='prix'>$$prix<span class='month'>/$mois</span></p>";
 
