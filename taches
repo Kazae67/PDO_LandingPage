@@ -12,6 +12,7 @@
 [Créer une table email en BDD et y ajouter un champs email] ✓
 [Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »] ✓
 [Afficher un message de notification à l’utilisateur] ✓
+[Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support] ✓
 
 [ANNEXES]
 [Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
@@ -27,7 +28,7 @@
 [Organiser à nouveau index.php depuis l'ajout des emails]
 [Améliorer les commentaires d'admin]
 [Remplissage automatique de préférence sur le formulaire admin]
-[Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support]
 [Terminer le css du newsletter]
 [Terminer le css d'admin.php (problème avec css demander éventuellement au formateur)]
+[Ajouter éventuellement un <script>alert pour le côté admin à la validation de la modification du formulaire]
 
