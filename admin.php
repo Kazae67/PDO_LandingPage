@@ -51,7 +51,10 @@ foreach ($formules as $formule) {
 
         <!-- Champ "Support" -->
         <label for="support">Support:</label>
-        <input type="text" name="support" required>
+        <select name="support" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
         <br>
 
         <!-- Champ "Domain" -->
@@ -61,7 +64,10 @@ foreach ($formules as $formule) {
 
         <!-- Champ "Hidden fees" -->
         <label for="hidden_fees">Hidden fees:</label>
-        <input type="text" name="hidden_fees" required>
+        <select name="hidden_fees" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
         <br>
 
         <!-- Champ "Commande" -->

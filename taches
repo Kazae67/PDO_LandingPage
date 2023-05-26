@@ -24,11 +24,13 @@
 [Améliorer les commentaires d'index] ✓
 [Améliorer les commentaires db-functions] ✓
 [Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
+
+[Ajouter des selecteurs pour les options Yes:No plutôt] ✓
+[Remplissage automatique de préférence sur le formulaire admin]
+[Ajouter éventuellement un <script>alert pour le côté admin à la validation de la modification du formulaire]
 [Améliorer commentaires email index.php et admin.php]
 [Organiser à nouveau index.php depuis l'ajout des emails]
-[Améliorer les commentaires d'admin]
-[Remplissage automatique de préférence sur le formulaire admin]
+
 [Terminer le css du newsletter]
 [Terminer le css d'admin.php (problème avec css demander éventuellement au formateur)]
-[Ajouter éventuellement un <script>alert pour le côté admin à la validation de la modification du formulaire]
 
