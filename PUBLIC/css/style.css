@@ -1,67 +1,61 @@
-body {
-    background-color: #f5f5f5;
-    margin: 0;
-    display: flex;
-    /* justify-content: center; Centrer horizontalement les éléments */
-    align-items: center; /* Centrer verticalement les éléments */
-}
-
-/* CONTAINER */
+/* Container */
 .pricing-container {
     display: flex;
-    justify-content: space-between ;
-    width: 100%; /* occuper toute la largeur disponible */
-    max-width: 1150; /* Limiter la largeur maximale [à changer plus tard] */
-    margin: 0 auto; /* centrer le conteneur */
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-/* LES BOX */
+/* Box de tarification */
 .pricing-box {
-    position: relative;
-    width: 19%;
-    background-color: #ffffff;
-    border-radius: 8px; 
-    padding: 68px;
-    display: flex;
-    flex-direction: column; 
-    /*flex-grow : 0.5; [à tester plus tard]*/
-}
-
-/* LES BOX <h2> */
-.pricing-box h2 {
-    font-size: 24px;
-    margin-bottom: 22px; /*Monter le titre*/
-    margin-top: -45px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
     text-align: center;
 }
 
-/* LES BOX <p>*/
+.pricing-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 .pricing-box p {
-    margin: 0;
-    padding-bottom: 7px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.pricing-box .prix {
+    font-size: 30px;
+}
+
+.pricing-box .month {
+    font-size: 18px;
+}
+
+.pricing-box .reduction {
+    font-size: 18px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Fonctionnalités */
+.pricing-box .feature {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
-/* LES BOX <p> ETIQUETTES */
-.pricing-box p .label {
-    margin-right: 10px;
-}
-
-/* LES BOX <p> VALEURS */
-.pricing-box p .value {
-    text-align: right;
-}
-
-/* LE MOIS */
+/* Le mois */
 .month {
     font-size: 12px;
     color: #999;
 }
 
-/* LE PRIX [essayer une autre police d'écriture] */
+/* Le prix*/
 .prix {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px; 
@@ -70,85 +64,55 @@ body {
     margin: 0 auto;
 }
 
-/*RÉDUCTION */
-/*[Idée d'animation à ne pas oublier] */
-.reduction {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+/* La réduction */
+.pricing-box .reduction {
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
     background-color: rgb(63, 134, 228);
     padding: 5px 10px;
-    justify-content: center;
-    text-align:left;
-    border-radius: 0px 5px 0px 12px; /*Tout en douceur :) */
+    text-align: left;
+    border-radius: 0px 5px 0px 5px;
+    margin-top: 10px;
 }
 
-/* button join */
+/* Bouton "Join Now" */
 .join-button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
     margin-top: 10px;
     cursor: pointer;
-  }
-
-/* Symbole vert */
-.symbol-vert {
-    color: green;
-  }
-
-/* Symbole rouge */
-.symbol-rouge {
-color: red;
 }
 
-/* Effet de survol */
-.pricing-box:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px);
-    transition: transform 0.4s ease;
-  }
-  
-/* button hover */
-.join-button:hover {
-background-color: #0056b3;
-}
-
-/* Container pour l'input et le bouton */
+/* Formulaire newsletter */
 .subscribe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     margin-top: 20px;
 }
 
-/* Style de l'input */
 .subscribe-container input[type="email"] {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px 0 0 4px;
-    border: 1px solid #ccc;
     width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
 }
 
-/* Style du bouton */
 .subscribe-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 0 4px 4px 0;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     cursor: pointer;
-}
-
-/* Effet de survol du bouton subscribe */
-.subscribe-container button:hover {
-    background-color: #0056b3;
+    border-radius: 5px;
 }

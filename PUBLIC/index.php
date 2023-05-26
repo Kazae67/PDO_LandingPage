@@ -95,10 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
 }
 
 ?>
+
 </div>
 
 <!-- Formulaire newsletter -->
 <div class="subscribe-container">
-    <input type="email" name="email" placeholder="Votre adresse email" required>
-    <button type="submit" name="subscribe">Subscribe</button>
+    <form method='post' action=''>
+        <input type='email' name='email' placeholder='Votre adresse email' required>
+        <button type='submit' name='subscribe'>Subscribe</button>
+    </form>
 </div>
