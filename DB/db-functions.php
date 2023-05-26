@@ -94,7 +94,7 @@ function updateForm($db) { // (1)
  * (7) La requête est exécutée en utilisant la méthode execute(). (https://www.php.net/manual/en/pdostatement.execute.php)
  */
  function ajouterCommande(){
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') { // (1)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['commande'])) { // (1)
         $db = connection(); // (2)
         foreach ($_POST['commande'] as $formule => $commande) { // (3)
             
@@ -114,9 +114,9 @@ function ajouterEmail($email) {
     $db = connection(); 
 
     $query = "INSERT INTO email (email) VALUES (:email)"; 
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute(); 
+    $update = $db->prepare($query);
+    $update->bindParam(':email', $email);
+    $update->execute(); 
 }
 // [FIN TEST]
 
