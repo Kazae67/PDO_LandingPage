@@ -28,3 +28,4 @@
 [Améliorer le css d'admin.php] (problème avec css de mander éventuellement au formateur)
 [Remplissage automatique de préférence sur le formulaire admin]
 [Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support]
+[Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter]
