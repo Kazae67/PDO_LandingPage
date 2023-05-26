@@ -23,7 +23,7 @@ formatValue($value);
  * (5) Les données sont extraites et stockées dans des variables individuelles telles que $formule, $prix, $mois, etc.
  * (6) La condition if ($afficherReduction && $reduction >= 0) vérifie si la réduction doit être affichée et si sa valeur est supérieure ou égale à zéro.
  * (7) Les fonctionnalités de la formule sont stockées dans un tableau $features contenant des tableaux associatifs, les valeurs et les symboles correspondants.
- * (8) Foreach utilisée pour parcourir chaque fonctionnalité du tableau $features et appeler la fonction displayFeature() pour afficher chaque fonctionnalité son label, sa valeur et son symbole.
+ * (8) Foreach utilisée pour parcourir chaque fonctionnalité du tableau $features et appeler pour afficher chaque fonctionnalité son label, sa valeur et son symbole.
  * (9) Un formulaire de commande est affiché avec la valeur de la commande extraite de la base de données, ainsi qu'un boutton.
  * 
  */
@@ -62,11 +62,14 @@ if ($result->rowCount() > 0) { // (3)
             ['label' => 'Domain', 'value' => $domain, 'symbol' => ($domain > 0 ? '✓' : '×')],
             ['label' => 'Hidden fees', 'value' => $hidden_fees, 'symbol' => ($hidden_fees == 'Yes' ? '✓' : '×')],
         ];
-        
-        // Foreach des tableaux.
+        // Affichage des fonctionnalités de la formule.
         foreach ($features as $feature) { // (8)
-            displayFeature($feature['label'], $feature['value'], $feature['symbol']);
+            echo "<div class='feature'>";
+            echo "<span class='label'>" . $feature['symbol'] . " " . $feature['label'] . "</span>";
+            echo "<span class='value'>" . $feature['value'] .  "</span>";
+            echo "</div>";
         }
+        
         // Formulaire de commande.
         echo "<form method='post' action=''>"; // (9)
         echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
