@@ -15,6 +15,20 @@ ajouterCommande(); // Incrémente à chaque clic
 $value = 999; // formatValue() | MB/GB
 formatValue($value);
 
+
+// [DEBUT TEST]
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
+    $email = $_POST['email'];
+    ajouterEmail($email);
+    echo "<script>alert('Merci de vous être abonné à notre newsletter !');</script>";
+}
+
+echo "<form method='post' action=''>";
+echo "<input type='email' name='email' placeholder='Votre adresse email' required>";
+echo "<button type='submit' name='subscribe'>Subscribe</button>";
+echo "</form>";
+// [FIN TEST]
+
 /**
  * (1) Une requête SQL est exécutée pour récupérer toutes les lignes de la table pricing_db de la base de données.
  * (2) Les résultats sont stockés dans la variable $result.

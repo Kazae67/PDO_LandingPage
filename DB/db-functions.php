@@ -109,6 +109,17 @@ function updateForm($db) { // (1)
     }
 }
 
+// [DEBUT TEST]
+function ajouterEmail($email) { 
+    $db = connection(); 
+
+    $query = "INSERT INTO email (email) VALUES (:email)"; 
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute(); 
+}
+// [FIN TEST]
+
 /**
  * (1) La condition if ($value > 999) vérifie si la valeur donnée est supérieure à 999. Cela permet de déterminer si la valeur est exprimée en (MB) ou en (GB).
  * (2) Si la condition est vraie, cela signifie que la valeur est supérieure à 999 et doit être convertie en GB. 
