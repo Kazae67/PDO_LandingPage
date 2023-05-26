@@ -17,12 +17,19 @@ $formules = array(
     "Advanced"
 );
 
-foreach ($formules as $formule) {
+/**
+ * (1) Le code utilise une boucle foreach pour itérer sur le tableau $formules et générer un formulaire pour chaque élément du tableau. 
+ * (2) Le formulaire a l'attribut action défini sur "admin.php", les données du formulaire seront envoyées à cette page lors de la soumission.
+ * (3) L'input de type "hidden" est utilisé pour stocker la valeur de la variable $formule et la transmettre à la page "admin.php" sans que l'utilisateur ne la voie.
+ * (4) Les balises <select> pour afficher des options
+ * 
+ */
+foreach ($formules as $formule) { // (1)
     ?>
-    <!-- Début du formulaire -->
-    <form action="admin.php" method="POST">
+    <!-- Début Formulaire -->
+    <form action="admin.php" method="POST"> <!--(2)-->
         <h2><?php echo $formule; ?></h2>
-        <input type="hidden" name="formule" value="<?php echo $formule; ?>">
+        <input type="hidden" name="formule" value="<?php echo $formule; ?>">  <!--(3)-->
 
          <!-- Champ "Name" -->
         <label for="name">Name:</label>
@@ -51,7 +58,7 @@ foreach ($formules as $formule) {
 
         <!-- Champ "Support" -->
         <label for="support">Support:</label>
-        <select name="support" required>
+        <select name="support" required> <!--(4)-->
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
