@@ -14,6 +14,9 @@
 [Afficher un message de notification à l’utilisateur] ✓
 [Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support] ✓
 
+[Remplissage automatique de préférence sur le formulaire admin]
+
+
 [ANNEXES]
 [Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
 [Changer les formulaires pour les mettres dans un foreach ou choisir d'utiliser un système de selecteur id avec 1 formulaire] ✓
@@ -24,11 +27,11 @@
 [Améliorer les commentaires d'index] ✓
 [Améliorer les commentaires db-functions] ✓
 [Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
-
 [Ajouter des selecteurs pour les options Yes:No plutôt] ✓
-[Remplissage automatique de préférence sur le formulaire admin]
-[Améliorer commentaires email index.php et admin.php] 
 [Organiser à nouveau index.php depuis l'ajout des emails] ✓
+[Améliorer commentaires db-functions ajouterEmail] ✓
+
+[Améliorer commentaires admin.php] 
 
 [Terminer le css du newsletter]
 [Terminer le css d'admin.php (problème avec css demander éventuellement au formateur)]

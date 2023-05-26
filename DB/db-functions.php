@@ -109,16 +109,23 @@ function updateForm($db) { // (1)
     }
 }
 
-// [DEBUT TEST]
-function ajouterEmail($email) { 
-    $db = connection(); 
+/**
+ * (1) La fonction ajouterEmail prend une adresse e-mail en tant que paramètre.
+ * (2) La fonction connection() est appelée pour établir une connexion à la base de données.
+ * (3) La requête SQL est définie dans la variable $query. Paramètre nommé (:email) pour insérer la valeur de l'adresse e-mail de manière sécurisée. (https://www.php.net/manual/fr/pdo.query.php)
+ * (4) La méthode prepare() de l'objet de connexion à la base de données ($db) prépare la requête SQL en utilisant la chaîne $query. (https://www.php.net/manual/fr/pdo.prepare.php)
+ * (5) La méthode bindParam est utilisée pour lier le paramètre nommé :email avec la variable $email. 
+ *     Cela permet de passer la valeur de l'adresse e-mail à la requête SQL de manière sécurisée. (https://www.php.net/manual/fr/pdostatement.bindparam.php) 
+ * (6) La requête est exécutée en utilisant la méthode execute(). (https://www.php.net/manual/en/pdostatement.execute.php)
+ */
+function ajouterEmail($email) { // (1)
+    $db = connection(); // (2)
 
-    $query = "INSERT INTO email (email) VALUES (:email)"; 
-    $update = $db->prepare($query);
-    $update->bindParam(':email', $email);
-    $update->execute(); 
+    $query = "INSERT INTO email (email) VALUES (:email)"; // (3)
+    $update = $db->prepare($query); // (4)
+    $update->bindParam(':email', $email); // (5)
+    $update->execute(); // (6)
 }
-// [FIN TEST]
 
 /**
  * (1) La condition if ($value > 999) vérifie si la valeur donnée est supérieure à 999. Cela permet de déterminer si la valeur est exprimée en (MB) ou en (GB).
