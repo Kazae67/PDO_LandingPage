@@ -27,9 +27,8 @@
 
 [Ajouter des selecteurs pour les options Yes:No plutôt] ✓
 [Remplissage automatique de préférence sur le formulaire admin]
-[Ajouter éventuellement un <script>alert pour le côté admin à la validation de la modification du formulaire]
-[Améliorer commentaires email index.php et admin.php]
-[Organiser à nouveau index.php depuis l'ajout des emails]
+[Améliorer commentaires email index.php et admin.php] 
+[Organiser à nouveau index.php depuis l'ajout des emails] ✓
 
 [Terminer le css du newsletter]
 [Terminer le css d'admin.php (problème avec css demander éventuellement au formateur)]

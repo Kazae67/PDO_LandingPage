@@ -15,21 +15,7 @@ ajouterCommande(); // Incrémente à chaque clic
 $value = 999; // formatValue() | MB/GB
 formatValue($value);
 
-
-// [DEBUT TEST]
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
-    $email = $_POST['email'];
-    ajouterEmail($email);
-    echo "<script>alert('Merci de vous être abonné à notre newsletter !');</script>";
-}
-
-echo "<form method='post' action=''>";
-echo "<input type='email' name='email' placeholder='Votre adresse email' required>";
-echo "<button type='submit' name='subscribe'>Subscribe</button>";
-echo "</form>";
-// [FIN TEST]
-
-/**
+/** AFFICHAGE FORMULES
  * (1) Une requête SQL est exécutée pour récupérer toutes les lignes de la table pricing_db de la base de données.
  * (2) Les résultats sont stockés dans la variable $result.
  * (3) La condition if ($result->rowCount() > 0) vérifie s'il y a des résultats de la requête. 
@@ -92,6 +78,25 @@ if ($result->rowCount() > 0) { // (3)
 } else {
     echo "Aucune formule de la base de données pricing trouvée.";
 }
+
+/** AFFICHAGE NEWSLETTER
+ * (1) On utilise superglobale $_SERVER['REQUEST_METHOD'] pour vérifier si la méthode de requête est POST et si l'index 'email' existe dans $_POST. 
+ *     le code s'exécute uniquement lorsque le formulaire est soumis via la méthode POST et que la valeur de l'input 'email' est présente.
+ * (2) La variable $email est initialisée avec la valeur de $_POST['email']. 
+ * (3) La fonction ajouterEmail($email) est appelée pour ajouter l'adresse e-mail à une liste.
+ * (4) Affiche un formulaire HTML avec la méthode POST et une action vide. L'action est vide donc on reste à la même page. 
+ */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
+    $email = $_POST['email']; // (2)
+    ajouterEmail($email); // (3)
+    echo "<script>alert('Merci de vous être abonné à notre newsletter !');</script>";
+}
+
+echo "<form method='post' action=''>"; // (4)
+echo "<input type='email' name='email' placeholder='Votre adresse email' required>";
+echo "<button type='submit' name='subscribe'>Subscribe</button>";
+echo "</form>";
+
 
 ?>
 </div>
