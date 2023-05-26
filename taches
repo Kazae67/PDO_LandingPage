@@ -8,12 +8,10 @@
 [Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)] ✓
 [Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand l utilisateur appuie sur « Join Now »] ✓
 [Afficher un message de notification à l utilisateur ]  ✓
-[Stocker les emails pour la newsletter]
-[Créer une table email en BDD et y ajouter un champs email]
-[Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »]
-[Afficher un message de notification à l’utilisateur]
-
-
+[Stocker les emails pour la newsletter] ✓
+[Créer une table email en BDD et y ajouter un champs email] ✓
+[Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »] ✓
+[Afficher un message de notification à l’utilisateur] ✓
 
 [ANNEXES]
 [Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
@@ -24,8 +22,12 @@
 [Corriger l'affichage "afficher réduction" dans starter]  ✓
 [Améliorer les commentaires d'index] ✓
 [Améliorer les commentaires db-functions] ✓
+[Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
+[Améliorer commentaires email index.php et admin.php]
+[Organiser à nouveau index.php depuis l'ajout des emails]
 [Améliorer les commentaires d'admin]
-[Améliorer le css d'admin.php] (problème avec css de mander éventuellement au formateur)
 [Remplissage automatique de préférence sur le formulaire admin]
 [Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support]
-[Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
+[Terminer le css du newsletter]
+[Terminer le css d'admin.php (problème avec css demander éventuellement au formateur)]
+
