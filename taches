@@ -37,6 +37,8 @@
 [Une amélioration du css total possible]
 [Mettre des sanitize pour l'email]
 [Afficher message d'erreur si email inapproprié]
+[Ajouter un (s) à commande si supérieur à 1]
+[Ajouter un hover sur les bouttons]
 
 [FACULTATIF]
 [Ajouter un petit navbar pour naviguer entre index.php et admin.php]
