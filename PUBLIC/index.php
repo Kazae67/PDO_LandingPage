@@ -74,6 +74,8 @@ if ($result->rowCount() > 0) { // (3)
         echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
         echo "</form>";
         echo "</div>";
+        ?>
+        <?php
     }
 } else {
     echo "Aucune formule de la base de données pricing trouvée.";
@@ -92,11 +94,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
     echo "<script>alert('Merci de vous être abonné à notre newsletter !');</script>";
 }
 
-echo "<form method='post' action=''>"; // (4)
-echo "<input type='email' name='email' placeholder='Votre adresse email' required>";
-echo "<button type='submit' name='subscribe'>Subscribe</button>";
-echo "</form>";
-
-
 ?>
+</div>
+
+<!-- Formulaire newsletter -->
+<div class="subscribe-container">
+    <input type="email" name="email" placeholder="Votre adresse email" required>
+    <button type="submit" name="subscribe">Subscribe</button>
 </div>

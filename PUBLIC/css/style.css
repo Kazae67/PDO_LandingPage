@@ -102,11 +102,11 @@ body {
 .symbol-vert {
     color: green;
   }
-  
-  /* Symbole rouge */
-  .symbol-rouge {
-    color: red;
-  }
+
+/* Symbole rouge */
+.symbol-rouge {
+color: red;
+}
 
 /* Effet de survol */
 .pricing-box:hover {
@@ -115,7 +115,40 @@ body {
     transition: transform 0.4s ease;
   }
   
-  /* button hover */
-  .join-button:hover {
+/* button hover */
+.join-button:hover {
+background-color: #0056b3;
+}
+
+/* Container pour l'input et le bouton */
+.subscribe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style de l'input */
+.subscribe-container input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+/* Style du bouton */
+.subscribe-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Effet de survol du bouton subscribe */
+.subscribe-container button:hover {
     background-color: #0056b3;
-  }
+}
