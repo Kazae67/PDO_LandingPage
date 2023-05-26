@@ -32,10 +32,14 @@
 [Améliorer commentaires db-functions ajouterEmail] ✓
 [Améliorer commentaires admin.php] ✓
 [Terminer le css du newsletter] ✓
-
-[Terminer le css d'admin.php]
+[Terminer le css d'admin.php] ✓
 
 [Une amélioration du css total possible]
+[Mettre des sanitize pour l'email]
+[Afficher message d'erreur si email inapproprié]
+
+[FACULTATIF]
+[Ajouter un petit navbar pour naviguer entre index.php et admin.php]
 
 
 
