@@ -17,8 +17,8 @@ $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 // Formules
 $formules = array(
     "Starter",
-    "Professional",
-    "Advanced"
+    "Advanced",
+    "Professional"
 );
 
 /**

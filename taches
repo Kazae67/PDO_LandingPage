@@ -33,9 +33,9 @@
 [Transformer tout en functions et les placer dans db-functions] ✓
 [Réussir à appeler les functions dans la vue] ✓
 [Améliorer la condition de la reduction && afficher_reduction] ✓
+[Remplacer l'emplacement d'advanced & professional dans admin.php] ✓
 
 `EN COURS`
-[Remplacer l'emplacement d'advanced & professional dans admin.php]
 [Mettre des sanitize pour l'email]
 [Afficher message d'erreur si email inapproprié]
 [Ajouter un (s) à commande si supérieur à 1]
