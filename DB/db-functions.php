@@ -132,23 +132,28 @@ function checkExistingEmail($email) {
 }
 
 function ajouterEmail($email) {
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $filteredEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+    
+    if (!filter_var($filteredEmail, FILTER_VALIDATE_EMAIL)) {
         echo "L'adresse e-mail n'est pas au format valide.";
+        echo "<br><br>";
         return;
     }
 
-    if (checkExistingEmail($email)) {
+    if (checkExistingEmail($filteredEmail)) {
         echo "L'adresse e-mail existe déjà dans la base de données.";
+        echo "<br><br>";
         return;
     }
 
     $db = connection();
     $query = "INSERT INTO email (email) VALUES (:email)";
     $update = $db->prepare($query);
-    $update->bindParam(':email', $email);
+    $update->bindParam(':email', $filteredEmail);
     $update->execute();
 
     echo "L'adresse e-mail a été ajoutée avec succès.";
+    echo "<br><br>";
 }
 
 /*  F  O  R  M  A  T    V  A  L  U  E  (  )

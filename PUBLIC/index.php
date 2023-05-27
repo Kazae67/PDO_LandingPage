@@ -94,7 +94,6 @@ if ($result->rowCount() > 0) { // (3)
 } else {
     echo "Aucune formule de la base de données pricing trouvée.";
 }
-
 ?>
 
 <!-- Fin Conteneur formules -->

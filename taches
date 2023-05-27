@@ -37,9 +37,9 @@
 [Remplacer l'emplacement d'advanced & professional dans admin.php] ✓
 [Ajouter un (s) à commande si supérieur à 1] ✓
 [Recommencer les commentaires dans admin.php] ✓
+[Mettre des sanitize pour l'email] ✓
 
 `EN COURS`
-[Mettre des sanitize pour l'email]
 [Ajouter un petit navbar pour naviguer entre index.php et admin.php]
 [Organiser les commentaires email db-functions.php et index.php]
 
