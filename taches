@@ -17,6 +17,7 @@
 [Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
 [Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support] ✓
 [Remplissage automatique de préférence sur le formulaire admin] ✓
+[Afficher message d'erreur si email déjà existant] ✓
 
 `ANNEXES`
 [Trouver un moyen d'afficher l'erreur où se trouvent les champs vides] ✓
@@ -39,8 +40,8 @@
 
 `EN COURS`
 [Mettre des sanitize pour l'email]
-[Afficher message d'erreur si email inapproprié]
 [Ajouter un petit navbar pour naviguer entre index.php et admin.php]
+[Organiser les commentaires email db-functions.php et index.php]
 
 
                 FRONT

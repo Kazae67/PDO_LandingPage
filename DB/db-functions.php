@@ -1,6 +1,7 @@
 <?php
 /**
- * __________D___N___S___________________
+ * __________D___B__________________
+ * C  O  N  N  E  C  T  I  O  N  (  )
  * (1) Les variables $host, $dbname, $username et $password stockent les informations nécessaires pour la connexion à la base de données. 
  * (2) Commence une structure try-catch pour gérer les exceptions qui pourraient se produire lors de la connexion à la base de données.
  *     Dans le bloc try, une nouvelle instance de la classe PDO est créée pour établir la connexion avec la base de données. 
@@ -27,6 +28,7 @@ function connection(){
     }
 
 /** __________A___D___M___I___N__________
+ * U  P  D  A  T  E    F  O  R  M  (  )
 * (1) La fonction updateForm($db) prend en paramètre une instance de connexion à la base de données $db.
 * (2) La condition if (isset($_POST['update'])) vérifie si la clé 'update' existe dans le tableau $_POST. 
 *     Cela permet de déterminer si le formulaire a été soumis, car le bouton "Update" doit avoir l'attribut name="update".
@@ -80,6 +82,7 @@ function updateForm($db) { // (1)
 }
 
 /**__________I___N___D___E___X__________
+ * A  J  O  U  T  E  R    C  O  M  M  M  A  N  D  E  (  )
  * (1) La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') vérifie si la méthode de requête est POST, permet de déterminer si un formulaire a été soumis.
  *     S'il s'agit d'une requête POST, cela signifie qu'un formulaire a été soumis, et les données de commande doivent être mises à jour dans la base de données.
  * (2) La fonction connection() est appelée pour établir une connexion à la base de données.
@@ -109,7 +112,7 @@ function updateForm($db) { // (1)
     }
 }
 
-/**
+/*  E  M  A  I  L  (  )
  * (1) La fonction ajouterEmail prend une adresse e-mail en tant que paramètre.
  * (2) La fonction connection() est appelée pour établir une connexion à la base de données.
  * (3) La requête SQL est définie dans la variable $query. Paramètre nommé (:email) pour insérer la valeur de l'adresse e-mail de manière sécurisée. (https://www.php.net/manual/fr/pdo.query.php)
@@ -118,16 +121,37 @@ function updateForm($db) { // (1)
  *     Cela permet de passer la valeur de l'adresse e-mail à la requête SQL de manière sécurisée. (https://www.php.net/manual/fr/pdostatement.bindparam.php) 
  * (6) La requête est exécutée en utilisant la méthode execute(). (https://www.php.net/manual/en/pdostatement.execute.php)
  */
-function ajouterEmail($email) { // (1)
-    $db = connection(); // (2)
-
-    $query = "INSERT INTO email (email) VALUES (:email)"; // (3)
-    $update = $db->prepare($query); // (4)
-    $update->bindParam(':email', $email); // (5)
-    $update->execute(); // (6)
+function checkExistingEmail($email) {
+    $db = connection();
+    $query = "SELECT COUNT(*) FROM email WHERE email = :email";
+    $update = $db->prepare($query);
+    $update->bindParam(':email', $email);
+    $update->execute();
+    $count = $update->fetchColumn();
+    return $count > 0;
 }
 
-/**
+function ajouterEmail($email) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "L'adresse e-mail n'est pas au format valide.";
+        return;
+    }
+
+    if (checkExistingEmail($email)) {
+        echo "L'adresse e-mail existe déjà dans la base de données.";
+        return;
+    }
+
+    $db = connection();
+    $query = "INSERT INTO email (email) VALUES (:email)";
+    $update = $db->prepare($query);
+    $update->bindParam(':email', $email);
+    $update->execute();
+
+    echo "L'adresse e-mail a été ajoutée avec succès.";
+}
+
+/*  F  O  R  M  A  T    V  A  L  U  E  (  )
  * (1) La condition if ($value > 999) vérifie si la valeur donnée est supérieure à 999. Cela permet de déterminer si la valeur est exprimée en (MB) ou en (GB).
  * (2) Si la condition est vraie, cela signifie que la valeur est supérieure à 999 et doit être convertie en GB. 
  *     La valeur est divisée par 999 et le résultat est arrondi à une décimale en utilisant la fonction round($value / 999, 1). 
@@ -141,7 +165,7 @@ function formatValue($value){
     }
 }
 
-/**
+/*  D  I  S  P  L  A  Y  F  E  A  T  U  R  E  (  )
  * (1) La fonction displayFeature est définie avec trois paramètres : $label, $value et $symbol. 
  *     Cette fonction est utilisée pour afficher une fonctionnalité (label), sa valeur correspondante et un symbole associé.
  * (2) Une variable $class est déclarée et initialisée en fonction du symbole donné. 

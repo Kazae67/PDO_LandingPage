@@ -6,6 +6,8 @@ require_once '../DB/db-functions.php';
 ajouterCommande(); // Incrémente à chaque clic
 $value = 999; // formatValue() | MB/GB
 formatValue($value);
+
+
 ?>
 
 <!-- CSS -->
@@ -93,6 +95,12 @@ if ($result->rowCount() > 0) { // (3)
     echo "Aucune formule de la base de données pricing trouvée.";
 }
 
+?>
+
+<!-- Fin Conteneur formules -->
+</div> 
+
+<?php
 /** AFFICHAGE NEWSLETTER
  * (1) On utilise superglobale $_SERVER['REQUEST_METHOD'] pour vérifier si la méthode de requête est POST et si l'index 'email' existe dans $_POST. 
  *     le code s'exécute uniquement lorsque le formulaire est soumis via la méthode POST et que la valeur de l'input 'email' est présente.
@@ -100,18 +108,19 @@ if ($result->rowCount() > 0) { // (3)
  * (3) La fonction ajouterEmail($email) est appelée pour ajouter l'adresse e-mail à une liste.
  * (4) Affiche un formulaire HTML avec la méthode POST et une action vide. L'action est vide donc on reste à la même page. 
  */
+?>
+<!-- SUBSCRIBE CONTAINER -->
+<div class="subscribe-container">
+<?php
+
+// Message d'erreur
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
     $email = $_POST['email']; // (2)
     ajouterEmail($email); // (3)
-    echo "<script>alert('Merci de vous être abonné à notre newsletter !');</script>";
 }
 ?>
 
-<!-- Fin Conteneur formules -->
-</div> 
-
-<!-- Formulaire newsletter -->
-<div class="subscribe-container">
+<!-- EMAIL -->
     <form method='post' action=''>
         <input type='email' name='email' placeholder='Votre adresse email' required>
         <button type='submit' name='subscribe'>Subscribe</button>
