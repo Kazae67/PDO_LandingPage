@@ -1,47 +1,65 @@
-[PRINCIPAUX]
+                BACK
+***************************************
+`PRINCIPAUX`
+
 [Créer une interface servant à mettre à jour les données de pricing depuis un fichier admin.php] ✓
 [Trouver une méthode pour établir la connexion] ✓
 [Trouver un moyen de mettre à jour après la récupération (piste QUERY)] ✓
-[Trouver un moyen d'afficher l'erreur ou les champs vides] ✓
-[Il faudra afficher un message de réussite ou d erreur] ✓
 [Ajouter un compteur de formules commandées] ✓
 [Ajouter à la table pricing un champ pour compter le nombre de commandes de chaque formule (pricing)] ✓
 [Créer une fonctionnalité qui incrémente de 1 le champ ajouté précédemment quand l utilisateur appuie sur « Join Now »] ✓
-[Afficher un message de notification à l utilisateur ]  ✓
+[Mettre les récupérations directement dans le dossier de db-functions] ✓
 [Stocker les emails pour la newsletter] ✓
 [Créer une table email en BDD et y ajouter un champs email] ✓
 [Créer une fonctionnalité qui insère l’email en BDD quand l’utilisateur appuie sur « Subscribe »] ✓
-[Afficher un message de notification à l’utilisateur] ✓
+[Corriger l'affichage "afficher réduction" dans starter]  ✓
+[Afficher un message de notification à l’utilisateur pour l'email] ✓
+[Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
 [Revoir la base de donnée pour les booleans [1,2] au niveau de l affichage  d Hidden fees et support] ✓
 [Remplissage automatique de préférence sur le formulaire admin] ✓
-[Remplacer l'emplacement d'advanced & professional dans admin.php]
 
-[ANNEXES]
+`ANNEXES`
+[Trouver un moyen d'afficher l'erreur où se trouvent les champs vides] ✓
+[Il faudra afficher un message de réussite ou d erreur] ✓
+[Afficher un message de notification à l utilisateur pour la modification depuis admin.php ]  ✓
 [Créer des functions pour raccourcir le code et la lisibilité -> index.php[92]]  ✓
-[Changer les formulaires pour les mettres dans un foreach ou choisir d'utiliser un système de selecteur id avec 1 formulaire] ✓
-[Mettre les récupérations directement dans le dossier de db-functions (bien tester à chaque copier collé)] ✓
-[Transformer tout en functions et les placer dans db-functions] ✓
-[Réussir à appeler les functions dans la vue] ✓
-[Corriger l'affichage "afficher réduction" dans starter]  ✓
 [Améliorer les commentaires d'index] ✓
 [Améliorer les commentaires db-functions] ✓
-[Régler le problème Warning: foreach() argument must be of type array|object, null given in quand on clic sur newsletter] ✓
 [Ajouter des selecteurs pour les options Yes:No plutôt] ✓
 [Organiser à nouveau index.php depuis l'ajout des emails] ✓
 [Améliorer commentaires db-functions ajouterEmail] ✓
 [Améliorer commentaires admin.php] ✓
-[Terminer le css du newsletter] ✓
-[Terminer le css d'admin.php] ✓
+[Changer les formulaires pour les mettres dans un foreach ou choisir d'utiliser un système de selecteur id avec 1 formulaire] ✓
+[Transformer tout en functions et les placer dans db-functions] ✓
+[Réussir à appeler les functions dans la vue] ✓
+[Améliorer la condition de la reduction && afficher_reduction] ✓
 
-[Une amélioration du css total possible]
+`EN COURS`
+[Remplacer l'emplacement d'advanced & professional dans admin.php]
 [Mettre des sanitize pour l'email]
 [Afficher message d'erreur si email inapproprié]
 [Ajouter un (s) à commande si supérieur à 1]
-[Ajouter un hover sur les bouttons]
 [Recommencer les commentaires dans admin.php]
-
-[FACULTATIF]
 [Ajouter un petit navbar pour naviguer entre index.php et admin.php]
 
 
+                FRONT
+***************************************
+`PRINCIPAUX`
+[Terminer le css du newsletter] ✓
+[Terminer le css d'admin.php] ✓
+[Améliorer l'affichage de la reduction] ✓
+[Placer la réduction en haut à droite] ✓
+[Faire en sorte que les label soient à gauche, et les valeurs à droite] ✓
+[Rendre le tout responsive] ✓
+[Faire clignoter les reductions qui as une valeur >=50] ✓
 
+`ANNEXES`
+[Améliorer les box] ✓
+[Améliorer l'affichage des prix] ✓
+[Modifier l'affichage du mois] ✓
+[Améliorer le positionnement des box] ✓
+
+`EN COURS`
+[Ajouter un hover sur les bouttons]
+[Une amélioration du css total toujours possible]
