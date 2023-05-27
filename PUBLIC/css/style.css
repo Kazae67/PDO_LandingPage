@@ -5,17 +5,16 @@ body {
     
 }
 
-/* Container */
+/* CONTAINER */
 .pricing-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 20px;
-
 }
 
-/* Box de tarification */
+/* FORMULES */
 .pricing-box {
     background:white;
     position: relative;
@@ -25,7 +24,7 @@ body {
     padding: 20px;
     margin: 10px;
     text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17); /* Ajout de l'ombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
 }
 
 .pricing-box h2 {
@@ -46,6 +45,7 @@ body {
     font-size: 18px;
 }
 
+/* REDUCTION */
 .pricing-box .reduction {
     position: absolute;
     top: 0;
@@ -54,11 +54,24 @@ body {
     font-weight: bold;
     color: #ffffff;
     background-color: rgb(63, 134, 228);
-    padding: 5px 10px;
+    padding: 8px 20px;
     text-align: left;
-    border-radius: 0px 5px 0px 5px;
-    margin-top: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17); /* Ajout de l'ombre */
+    border-radius: 0px 3px 0px 7px;
+    margin-top: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17); 
+}
+
+.blink {
+    animation: blink 1.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1.0;
+    }
 }
 
 /* Fonctionnalités */
@@ -69,13 +82,13 @@ body {
     margin-bottom: 5px;
 }
 
-/* Le mois */
+/* MOIS */
 .month {
     font-size: 12px;
     color: #999;
 }
 
-/* Le prix*/
+/* PRIX */
 .prix {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px; 
@@ -84,19 +97,7 @@ body {
     margin: 0 auto;
 }
 
-/* La réduction */
-.pricing-box .reduction {
-    font-size: 20px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: rgb(63, 134, 228);
-    padding: 8px 20px;
-    text-align: left;
-    border-radius: 0px 3px 0px 7px;
-    margin-top: 0px;
-}
-
-/* Bouton "Join Now" */
+/* JOIN NOW */
 .join-button {
     background-color:rgb(64, 144, 248);  
     color: white;
@@ -108,10 +109,10 @@ body {
     font-size: 16px;
     margin-top: 10px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17); /* Ajout de l'ombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
 }
 
-/* Formulaire newsletter */
+/* NEWSLETTER */
 .subscribe-container {
     text-align: center;
     margin-top: 20px;
@@ -123,7 +124,7 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-right: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17); /* Ajout de l'ombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
 }
 
 .subscribe-container button {
@@ -137,5 +138,5 @@ body {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Ajout de l'ombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
