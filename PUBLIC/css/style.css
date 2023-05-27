@@ -110,12 +110,22 @@ body {
     margin-top: 10px;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
+    transition: background-color 0.3s ease; 
+}
+.join-button:hover {
+    background-color: rgb(94, 174, 248);
 }
 
-/* NEWSLETTER */
+/* SUBSCRIBE */
 .subscribe-container {
+    color: white;
     text-align: center;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.subscribe-container button:hover {
+    background-color: #5bce64; 
+
 }
 
 .subscribe-container input[type="email"] {
@@ -139,4 +149,5 @@ body {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease; 
 }
