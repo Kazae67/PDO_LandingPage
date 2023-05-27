@@ -35,11 +35,11 @@
 [Améliorer la condition de la reduction && afficher_reduction] ✓
 [Remplacer l'emplacement d'advanced & professional dans admin.php] ✓
 [Ajouter un (s) à commande si supérieur à 1] ✓
+[Recommencer les commentaires dans admin.php] ✓
 
 `EN COURS`
 [Mettre des sanitize pour l'email]
 [Afficher message d'erreur si email inapproprié]
-[Recommencer les commentaires dans admin.php]
 [Ajouter un petit navbar pour naviguer entre index.php et admin.php]
 
 
