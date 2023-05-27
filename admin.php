@@ -22,24 +22,29 @@ $formules = array(
 );
 
 /**
- * (1) Le code utilise une boucle foreach pour itérer sur le tableau $formules et générer un formulaire pour chaque élément du tableau. 
- * (2) Le formulaire a l'attribut action défini sur "admin.php", les données du formulaire seront envoyées à cette page lors de la soumission.
- * (3) L'input de type "hidden" est utilisé pour stocker la valeur de la variable $formule et la transmettre à la page "admin.php" sans que l'utilisateur ne la voie.
- * (4) Les balises <select> pour afficher des options
- * 
+ * (1) À l'intérieur de la boucle, un filtrage est effectué sur le tableau $data à l'aide de la fonction array_filter. (https://www.php.net/manual/en/function.array-filter.php)
+ *     Cette fonction recherche une correspondance entre la clé 'formule' de chaque élément du tableau $data et la valeur de la variable $formule. 
+ * (2) Ensuite, une vérification est effectuée pour déterminer si une correspondance a été trouvée. 
+ *     Si la variable $matchingData n'est pas vide, cela signifie qu'une correspondance a été trouvée.
+ * (3) Si une correspondance est trouvée, la première ligne correspondante est extraite à l'aide de la fonction reset pour obtenir le premier élément de $matchingData. 
+ *     Les différentes valeurs de la ligne correspondante sont ensuite assignées à des variables spécifiques telles que $name, $price, $sale, $bandwidth etc.
+ * (4) Si aucune correspondance n'est trouvée, les valeurs par défaut sont assignées aux variables telles que $name, $price, $sale etc.
+ * (5) Le formulaire a comme action le fichier "admin.php", donc on reste sur la page.
+ * (6) À l'intérieur du formulaire, le nom de la formule est stocké dans un champ caché en utilisant la balise <input> avec le type "hidden".
+ * (7) Les valeurs de ces champs sont pré-remplies avec les valeurs des variables correspondantes (par exemple, value="<?php echo $name; ?>").
  */
 ?>
 <div class="admin-form-container">
     <?php
 foreach ($formules as $formule) {
     // Recherche de la correspondance dans les données de la base de données
-    $matchingData = array_filter($data, function ($row) use ($formule) {
+    $matchingData = array_filter($data, function ($row) use ($formule) { // (1)
         return $row['formule'] === $formule;
     });
 
     // Vérification si une correspondance a été trouvée
-    if (!empty($matchingData)) {
-        $row = reset($matchingData); 
+    if (!empty($matchingData)) { // (2)
+        $row = reset($matchingData); // (3)
 
         $name = $row['formule'];
         $price = $row['prix'];
@@ -51,7 +56,7 @@ foreach ($formules as $formule) {
         $hidden_fees = $row['hidden_fees'] ? 'Yes' : 'No';
         $commande = $row['commande'];
     } else {
-        // Utilise des valeurs par défaut si aucune correspondance n'a été trouvée dans la base de données
+        // Utilise des valeurs par défaut si aucune correspondance n'a été trouvée dans la base de données (4)
         $name = $formule;
         $price = '';
         $sale = '';
@@ -65,13 +70,13 @@ foreach ($formules as $formule) {
         ?>
         <!-- Début Formulaire -->
         <div class="admin-form-box">
-            <form action="admin.php" method="POST"> <!--(2)-->
+            <form action="admin.php" method="POST"> <!--(5)-->
                 <h2><?php echo $name; ?></h2>
-                <input type="hidden" name="formule" value="<?php echo $name; ?>">  <!--(3)-->
+                <input type="hidden" name="formule" value="<?php echo $name; ?>"> <!--(6)-->
 
                 <!-- Champ "Name" -->
                 <label for="name">Name:</label>
-                <input type="text" name="name" value="<?php echo $name; ?>" required>
+                <input type="text" name="name" value="<?php echo $name; ?>" required> <!--(7)-->
                 <br>
 
                 <!-- Champ "Price" -->
