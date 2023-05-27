@@ -77,7 +77,11 @@ if ($result->rowCount() > 0) { // (3)
         
         // Formulaire de commande.
         echo "<form method='post' action=''>"; // (9)
-        echo "<p>commande : <span id='commande-$formule'>$commande</span></p>";
+        echo "<p>commande";
+        if ($commande > 1) {
+            echo "s";
+        }
+        echo " : <span id='commande-$formule'>$commande</span></p>";
         echo "<input type='hidden' name='commande[$formule]' value='$commande'>";
         echo "<button class='join-button' type='submit' name='update' value='Update'>Join Now</button>";
         echo "</form>";
