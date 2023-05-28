@@ -18,6 +18,7 @@ body {
     background:white;
     position: relative;
     width: 300px;
+    height: 350px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
