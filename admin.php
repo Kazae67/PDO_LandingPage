@@ -15,6 +15,8 @@ $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 <link rel="stylesheet" href="PUBLIC/css/form-style.css">
 <link rel="stylesheet" href="PUBLIC/css/navbar.css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <!-- Navbar -->
 <nav class="navbar">
   <a href="PUBLIC/index.php" class="nav-link">Home</a>
@@ -41,6 +43,7 @@ $formules = array(
  * (6) À l'intérieur du formulaire, le nom de la formule est stocké dans un champ caché en utilisant la balise <input> avec le type "hidden". 
  *     (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden)
  * (7) Les valeurs de ces champs sont pré-remplies avec les valeurs des variables correspondantes (par exemple, value="<?php echo $name; ?>").
+ *     avec un readonly pour le champ "Name" pour qu'on ne puisse pas y apporter de modification.
  */
 ?>
 <div class="admin-form-container">
@@ -85,8 +88,10 @@ foreach ($formules as $formule) {
 
                 <!-- Champ "Name" -->
                 <label for="name">Name:</label>
-                <input type="text" name="name" value="<?php echo $name; ?>" required> <!--(7)-->
-                <br>
+                <div class="readonly-field">
+                    <input type="text" name="name" value="<?php echo $name; ?>" required readonly> <!-- (7) -->
+                    <i class="fas fa-lock"></i>
+                </div>
 
                 <!-- Champ "Price" -->
                 <label for="price">Price:</label>

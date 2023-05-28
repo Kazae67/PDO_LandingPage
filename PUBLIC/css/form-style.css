@@ -64,3 +64,16 @@ body {
 .admin-form-box input[type="submit"]:hover {
   background-color: #3f86e4;
 }
+
+/* CADENAS */
+.readonly-field {
+  position: relative;
+}
+
+
+.readonly-field i {
+  position: absolute;
+  top: 20%;
+  right: 10px;
+  color: #999;
+}
