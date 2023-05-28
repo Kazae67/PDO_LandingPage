@@ -10,6 +10,14 @@ formatValue($value);
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.php" class="nav-link">Home</a>
+  <a href="../admin.php" class="nav-link">Admin</a>
+</nav>
 
 <!-- container formules -->
 <div class="pricing-container">

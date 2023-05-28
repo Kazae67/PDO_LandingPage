@@ -13,6 +13,13 @@ $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- CSS -->
 <link rel="stylesheet" href="PUBLIC/css/form-style.css">
+<link rel="stylesheet" href="PUBLIC/css/navbar.css">
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="PUBLIC/index.php" class="nav-link">Home</a>
+  <a href="admin.php" class="nav-link">Admin</a>
+</nav>
 <?php
 
 // Formules
