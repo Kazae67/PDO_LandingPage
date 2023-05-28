@@ -1,18 +1,19 @@
 <?php
-// La ligne require_once 'db-functions.php' inclut le fichier db-functions.php, qui contient les fonctions nécessaires pour la connexion à la base de données.
+// Nécessaires pour la connexion à la base de données.
 require_once 'DB/db-functions.php';
+
+// Function(s)
+updateForm(connection());
+
+// Récupération des valeurs à partir de la base de données
+$db = connection();
+$statement = $db->query("SELECT * FROM pricing_db");
+$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!-- CSS -->
 <link rel="stylesheet" href="PUBLIC/css/form-style.css">
 <?php
-
-// Function(s)
-updateForm(connection());
-// Récupération des valeurs à partir de la base de données
-$db = connection();
-$statement = $db->query("SELECT * FROM pricing_db");
-$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 // Formules
 $formules = array(
@@ -30,7 +31,8 @@ $formules = array(
  *     Les différentes valeurs de la ligne correspondante sont ensuite assignées à des variables spécifiques telles que $name, $price, $sale, $bandwidth etc.
  * (4) Si aucune correspondance n'est trouvée, les valeurs par défaut sont assignées aux variables telles que $name, $price, $sale etc.
  * (5) Le formulaire a comme action le fichier "admin.php", donc on reste sur la page.
- * (6) À l'intérieur du formulaire, le nom de la formule est stocké dans un champ caché en utilisant la balise <input> avec le type "hidden".
+ * (6) À l'intérieur du formulaire, le nom de la formule est stocké dans un champ caché en utilisant la balise <input> avec le type "hidden". 
+ *     (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden)
  * (7) Les valeurs de ces champs sont pré-remplies avec les valeurs des variables correspondantes (par exemple, value="<?php echo $name; ?>").
  */
 ?>
@@ -68,7 +70,7 @@ foreach ($formules as $formule) {
         $commande = '';
     }
         ?>
-        <!-- Début Formulaire -->
+        <!-- Formulaire -->
         <div class="admin-form-box">
             <form action="admin.php" method="POST"> <!--(5)-->
                 <h2><?php echo $name; ?></h2>

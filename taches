@@ -38,11 +38,10 @@
 [Ajouter un (s) à commande si supérieur à 1] ✓
 [Recommencer les commentaires dans admin.php] ✓
 [Mettre des sanitize pour l'email] ✓
+[Organiser TOUT les commentaires, et l'organisation de toutes les pages] ✓
 
 `EN COURS`
-[Ajouter un petit navbar pour naviguer entre index.php et admin.php]
-[Organiser les commentaires email db-functions.php et index.php]
-
+[✓]
 
                 FRONT
 ***************************************
@@ -63,5 +62,5 @@
 [Ajouter un hover sur les bouttons] ✓
 
 `EN COURS`
-
 [Une amélioration du css total toujours possible]
+[Ajouter un petit navbar pour naviguer entre index.php et admin.php]

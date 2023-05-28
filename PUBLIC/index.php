@@ -1,26 +1,24 @@
 <?php
-// Contient les fonctions nécessaires pour la connexion à la base de données.
+// Nécessaires pour la connexion à la base de données.
 require_once '../DB/db-functions.php';
 
-// Function(s)
+// Functions
 ajouterCommande(); // Incrémente à chaque clic
 $value = 999; // formatValue() | MB/GB
 formatValue($value);
-
-
 ?>
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
 
-<!-- Conteneur formules -->
+<!-- container formules -->
 <div class="pricing-container">
 
 <?php
 /** AFFICHAGE FORMULES
  * (1) Une requête SQL est exécutée pour récupérer toutes les lignes de la table pricing_db de la base de données.
  * (2) Les résultats sont stockés dans la variable $result.
- * (3) La condition if ($result->rowCount() > 0) vérifie s'il y a des résultats de la requête. 
+ * (3) La condition if ($result->rowCount() > 0) vérifie s'il y a des résultats de la requête. (https://www.php.net/manual/fr/pdostatement.rowcount.php)
  * (4) Si c'est le cas, la boucle while est utilisée pour parcourir chaque ligne de résultat et afficher les détails de chaque formule de tarification.
  * (5) Les données sont extraites et stockées dans des variables individuelles telles que $formule, $prix, $mois, etc.
  * (6) La condition if ($afficherReduction && $reduction >= 1) vérifie si la réduction doit être affichée.
@@ -101,14 +99,14 @@ if ($result->rowCount() > 0) { // (3)
 
 <?php
 /** AFFICHAGE NEWSLETTER
- * (1) On utilise superglobale $_SERVER['REQUEST_METHOD'] pour vérifier si la méthode de requête est POST et si l'index 'email' existe dans $_POST. 
- *     le code s'exécute uniquement lorsque le formulaire est soumis via la méthode POST et que la valeur de l'input 'email' est présente.
- * (2) La variable $email est initialisée avec la valeur de $_POST['email']. 
- * (3) La fonction ajouterEmail($email) est appelée pour ajouter l'adresse e-mail à une liste.
- * (4) Affiche un formulaire HTML avec la méthode POST et une action vide. L'action est vide donc on reste à la même page. 
+ * (1) Le code vérifie si la méthode de requête est POST et si le champ email a été envoyé dans le formulaire. 
+ *     La vérification est effectuée avec la condition if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])).
+ * (2) Si la condition est vraie, cela signifie qu'un formulaire a été soumis et l'adresse e-mail saisie est stockée dans la variable $email.
+ * (3) La fonction ajouterEmail($email) est appelée pour ajouter l'adresse e-mail à une base de données ou effectuer une autre action en fonction de son implémentation. 
+ *     Cela permet de gérer l'ajout de l'adresse e-mail à la liste de diffusion ou de prendre d'autres mesures.
  */
 ?>
-<!-- SUBSCRIBE CONTAINER -->
+<!-- Subscribe container -->
 <div class="subscribe-container">
 <?php
 
@@ -119,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
 }
 ?>
 
-<!-- EMAIL -->
+<!-- E-mail -->
     <form method='post' action=''>
         <input type='email' name='email' placeholder='Votre adresse email' required>
         <button type='submit' name='subscribe'>Subscribe</button>

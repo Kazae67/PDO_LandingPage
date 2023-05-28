@@ -1,11 +1,10 @@
 body {
     background-color: #f5f5f5;
     margin: 100;
-    padding: 0;
-    
+    padding: 0;   
 }
 
-/* CONTAINER */
+/* CONTENEUR */
 .pricing-container {
     display: flex;
     justify-content: center;
@@ -74,7 +73,7 @@ body {
     }
 }
 
-/* Fonctionnalités */
+/* FONCTIONNALITÉES */
 .pricing-box .feature {
     display: flex;
     justify-content: space-between;
@@ -112,6 +111,7 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
     transition: background-color 0.3s ease; 
 }
+
 .join-button:hover {
     background-color: rgb(94, 174, 248);
 }
@@ -123,9 +123,9 @@ body {
     margin-top: 20px;
     transition: background-color 0.3s ease;
 }
+
 .subscribe-container button:hover {
     background-color: #5bce64; 
-
 }
 
 .subscribe-container input[type="email"] {
@@ -151,4 +151,3 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s ease; 
 }
-
