@@ -1,6 +1,6 @@
 body {
   background-color: #f5f5f5;
-  margin: 100px;
+  margin: 90;
   padding: 0;
 }
 
@@ -13,8 +13,9 @@ body {
   margin-bottom: 20px;
 }
 
+/* FORMULES */
 .admin-form-box {
-  background:white;
+  background: white;
   position: relative;
   width: 300px;
   border: 1px solid #ccc;

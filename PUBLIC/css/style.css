@@ -1,6 +1,6 @@
 body {
     background-color: #f5f5f5;
-    margin: 100;
+    margin: 90;
     padding: 0;   
 }
 
@@ -15,7 +15,7 @@ body {
 
 /* FORMULES */
 .pricing-box {
-    background:white;
+    background: white;
     position: relative;
     width: 300px;
     height: 350px;
@@ -90,16 +90,16 @@ body {
 
 /* PRIX */
 .prix {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px; 
-    font-weight: bolder; /* [Essayer plus gras] */
+    font-weight: bolder;
     color: rgb(64, 144, 248);  
     margin: 0 auto;
 }
 
 /* JOIN NOW */
 .join-button {
-    background-color:rgb(64, 144, 248);  
+    background-color: rgb(64, 144, 248);  
     color: white;
     border: none;
     padding: 10px 20px;
