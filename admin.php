@@ -130,7 +130,7 @@ foreach ($formules as $formule) {
                 <br>
 
                 <!-- Champ "Commande" -->
-                <label for="commande">Commande:</label>
+                <label for="commande">Order(s):</label>
                 <input type="text" name="commande" value="<?php echo $commande; ?>" required>
                 <br>
 

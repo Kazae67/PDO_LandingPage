@@ -85,7 +85,7 @@ if ($result->rowCount() > 0) { // (3)
         
         // Formulaire de commande.
         echo "<form method='post' action=''>"; // (9)
-        echo "<p>commande";
+        echo "<p>Order";
         if ($commande > 1) {
             echo "s";
         }
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) { // (1)
 
 <!-- E-mail -->
     <form method='post' action=''>
-        <input type='email' name='email' placeholder='Votre adresse email' required>
+        <input type='email' name='email' placeholder='Enter your email' required>
         <button type='submit' name='subscribe'>Subscribe</button>
     </form>
 </div>
